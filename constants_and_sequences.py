@@ -1,6 +1,4 @@
 dictionary = {}
-dictionary["Avogrado constant"] = 6.022*(10**23)
-dictionary["Boltzmann constant"] = 1.380649*(10**-23)
 dictionary["Gravitational constant"] = 6.67430*(10**-11)
 dictionary["Speed of light"] = 3*(10**8)
 dictionary["Magnetic constant"] = 1.25663706*(10**-6)
@@ -32,3 +30,10 @@ dictionary["Proton magnetic mass"] = 1.4106067*(10**-26)
 dictionary["Neutron mass"] = 1.6749274*(10**-27)
 dictionary["Neutron magnetic moment"] = -9.662365*(10**-27)
 
+dictionary["Avogrado constant"] = 6.022*(10**23)
+dictionary["Atomic mass"] = 1.660539*(10**-27)
+dictionary["Faraday constant"] = 96485.33289
+dictionary["Molar gas constant"] = 8.3144598
+dictionary["Boltzmann constant"] = 1.3806485
+dictionary["Molar volume of ideal gas"] = 0.022710947
+dictionary["Stefan-Boltzmann"] = 5.670367*(10**-8)
