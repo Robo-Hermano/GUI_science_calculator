@@ -18,3 +18,17 @@ dictionary["Josephson constant"] = 4.83597852*(10**14)
 dictionary["von Klitzing constant"] = 25812.80746
 dictionary["Bohr magneton"] = 9.2740099*(10**-24)
 dictionary["Nuclear magneton"] = 5.0507836*(10**-27)
+
+dictionary["Fine-structure constant"] = 7.29735256*(10**-3)
+dictionary["Rydberg constant"] = 10973731.57
+dictionary["Bohr radius"] = 5.2917721*(10**-11)
+dictionary["Electron mass"] = 9.1093835*(10**-31)
+dictionary["Electron magnetic moment"] = -9.284764*(10**-24)
+dictionary["Muon mass"] = 1.8835315*(10**-28)
+dictionary["Muon magnetic"] = -4.490448*(10**-26)
+dictionary["Tau mass"] = 3.16747*(10**-27)
+dictionary["Proton mass"] = 1.6726218*(10**-27)
+dictionary["Proton magnetic mass"] = 1.4106067*(10**-26)
+dictionary["Neutron mass"] = 1.6749274*(10**-27)
+dictionary["Neutron magnetic moment"] = -9.662365*(10**-27)
+
