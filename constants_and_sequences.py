@@ -1,4 +1,6 @@
 dictionary = {}
+amino_acids = {}
+
 dictionary["Gravitational constant"] = 6.67430*(10**-11)
 dictionary["Speed of light"] = 3*(10**8)
 dictionary["Magnetic constant"] = 1.25663706*(10**-6)
