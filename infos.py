@@ -1,5 +1,6 @@
 constants_dictionary = {}
 amino_acids = {}
+molecule_tests = {}
 
 constants_dictionary["Gravitational constant"] = 6.67430*(10**-11)
 constants_dictionary["Speed of light"] = 3*(10**8)
