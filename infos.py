@@ -40,3 +40,5 @@ constants_dictionary["Molar gas constant"] = 8.3144598
 constants_dictionary["Boltzmann constant"] = 1.3806485
 constants_dictionary["Molar volume of ideal gas"] = 0.022710947
 constants_dictionary["Stefan-Boltzmann"] = 5.670367*(10**-8)
+
+molecule_tests["Emulsion test"] = "Used to test for lipids. The sample is suspended in ethanol the decanted into water. If solution turns cloudy, lipids are present"
