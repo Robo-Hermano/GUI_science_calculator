@@ -42,3 +42,4 @@ constants_dictionary["Molar volume of ideal gas"] = 0.022710947
 constants_dictionary["Stefan-Boltzmann"] = 5.670367*(10**-8)
 
 molecule_tests["Emulsion test"] = "Used to test for lipids. The sample is suspended in ethanol the decanted into water. If solution turns cloudy, lipids are present"
+molecule_tests["Benedict test"] = "Used to test for sugars. Sample mixed with Benedict's reagent and then boiled for 3-5 minutes. Forms a precipitate with colour Blue if sugar isn't present and Green-Red if it is, sugar concentration lowest at green and highest at red."
