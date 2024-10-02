@@ -6,7 +6,7 @@ TESTS = INFO-FILE.molecule_tests
 AMINOS = INFO-FILE.amino_acids
 
 class Stack: #for undo and redo
-  def peek(self, value):
+  def peek(self):
     return self[len(self)-1]
   
   def push(self, value):
