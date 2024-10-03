@@ -23,3 +23,4 @@ class Calculator:
     master = tk.Tk()
 
 GUI_CALC = Calculator()
+GUI_CALC.master.mainloop()
