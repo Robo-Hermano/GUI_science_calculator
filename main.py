@@ -22,5 +22,5 @@ class Calculator:
   def __init__(self):
     master = tk.Tk()
 
-GUI_CALC = Calculator()
-GUI_CALC.master.mainloop()
+gui_calc = Calculator()
+gui_calc.master.mainloop()
