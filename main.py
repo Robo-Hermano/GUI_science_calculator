@@ -20,7 +20,7 @@ AMINOS = INFO-FILE.amino_acids
 
 class Calculator:
   def __init__(self):
-    master = tk.Tk()
+    self.master = tk.Tk()
 
 gui_calc = Calculator()
 gui_calc.master.mainloop()
