@@ -48,3 +48,5 @@ molecule_tests["Biuret test"] = "Used to test for protein. Sample mixed with cop
 molecule_tests["Hydrogen"] = "Makes flame in splint go out with a pop sound."
 molecule_tests["Oxygen"] = "relights splint."
 molecule_tests["CO2"] = "Turns limewater cloudy."
+molecule_tests["Chlorine"] = "Turns blue litmus paper into bleached white."
+molecule_tests["Ammonia"] = "Turns red litmus paper blue."
