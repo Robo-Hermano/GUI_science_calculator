@@ -44,3 +44,7 @@ constants_dictionary["Stefan-Boltzmann"] = 5.670367*(10**-8)
 molecule_tests["Emulsion test"] = "Used to test for lipids. The sample is suspended in ethanol the decanted into water. If solution turns cloudy, lipids are present."
 molecule_tests["Starch test"] = "Use drops of iodine on leaf after diluting iodine with water. If starch is present, it should turn blue-black."
 molecule_tests["Benedict test"] = "Used to test for sugars. Sample mixed with Benedict's reagent and then boiled for 3-5 minutes. Forms a precipitate with colour Blue if sugar isn't present and Green-Red if it is, sugar concentration lowest at green and highest at red."
+molecule_tests["Biuret test"] = "Used to test for protein. Sample mixed with copper sulfate. Protein present if blue precipitate formed."
+molecule_tests["Hydrogen"] = "Makes flame in splint go out with a pop sound."
+molecule_tests["Oxygen"] = "relights splint."
+molecule_tests["CO2"] = "Turns limewater cloudy."
