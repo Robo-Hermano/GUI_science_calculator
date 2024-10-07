@@ -37,6 +37,7 @@ constants_dictionary["Avogrado constant"] = 6.022*(10**23)
 constants_dictionary["Atomic mass"] = 1.660539*(10**-27)
 constants_dictionary["Faraday constant"] = 96485.33289
 constants_dictionary["Molar gas constant"] = 8.3144598
+constants_dictionary["Volume of one mole in room temp and pressure, in dm^3"] = 24
 constants_dictionary["Boltzmann constant"] = 1.3806485
 constants_dictionary["Molar volume of ideal gas"] = 0.022710947
 constants_dictionary["Stefan-Boltzmann"] = 5.670367*(10**-8)
