@@ -5,18 +5,29 @@ CONSTANTS = INFO-FILE.constants_dictionary
 TESTS = INFO-FILE.molecule_tests
 AMINOS = INFO-FILE.amino_acids
 
-#might use for undo and redo
-#class Stack:
-  #def peek(self):
-  #  return self[len(self)-1]
+#will use for undo and redo
+class Stack:
+  def __init__(self):
+    self.stack = []
   
-  #def push(self, value):
-  #  self = self.append(value)
-  #  return self
+  def peek(self):
+    try:
+      return self.stack[-1]
+    except:
+      return None
+  
+  def push(self, value):
+    self.stack.append(value)
 
-  #def pop(self):
-  #  self = self.remove(self[len(self)-1])
-  #  return self
+  def pop(self):
+    try:
+      popped = self.stack[-1]
+      self.stack.remove(self.stack[-1])
+      return popped
+    except:
+      return None
+
+actions_list = Stack()
 
 class Sci_Calculator:
   def __init__(self):
