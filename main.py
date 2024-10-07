@@ -18,9 +18,15 @@ AMINOS = INFO-FILE.amino_acids
   #  self = self.remove(self[len(self)-1])
   #  return self
 
-class Calculator:
+class Sci_Calculator:
   def __init__(self):
     self.master = tk.Tk()
+    self.master.geometry("500x500")
+    self.master.state("zoomed")
+    self.master.title("Science Calculator")
+    self.navigation
+  def navigation(self):
+    pass #display main options
 
 gui_calc = Calculator()
 gui_calc.master.mainloop()
