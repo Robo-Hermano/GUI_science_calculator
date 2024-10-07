@@ -39,5 +39,5 @@ class Sci_Calculator:
   def navigation(self):
     pass #display main options
 
-gui_calc = Calculator()
+gui_calc = Sci_Calculator()
 gui_calc.master.mainloop()
