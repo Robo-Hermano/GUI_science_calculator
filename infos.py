@@ -1,4 +1,5 @@
 constants_dictionary = {}
+bio_vocab = {}
 amino_acids = {}
 molecule_tests = {}
 
