@@ -4,6 +4,7 @@ import "NEA-science_GUI-calculator/infos.py" as INFO-FILE
 CONSTANTS = INFO-FILE.constants_dictionary
 TESTS = INFO-FILE.molecule_tests
 AMINOS = INFO-FILE.amino_acids
+VOCAB = INFO-FILE.bio_vocab
 
 #will use for undo and redo
 class Stack:
