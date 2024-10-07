@@ -24,7 +24,7 @@ class Sci_Calculator:
     self.master.geometry("500x500")
     self.master.state("zoomed")
     self.master.title("Science Calculator")
-    self.navigation
+    self.navigation()
   def navigation(self):
     pass #display main options
 
