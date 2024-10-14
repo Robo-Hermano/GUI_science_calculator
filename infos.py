@@ -57,8 +57,8 @@ molecule_tests["Cation flame test"] = "Lilac for K+, red for Na+, green-blue for
 molecule_tests["Cation precipitate test"] = "Reacts with hydroxide to form precipitate. Cu2+: green, Cu+: red-orange, Na+: blue, Zn+ white and dissolves in excess, Ca+: white and doesn't dissolve in excess"
 molecule_tests["Test for carbonates"] = "Reactc with nitric acid"
 molecule_tests["Sulfate ions test"] = "First put nitric acid to remove carbonate ions. Then put Barium Chloride ions; if precipitate formed, sulfate ions are present"
-molecule_tests[]
-molecule_tests[]
-molecule_tests[]
-molecule_tests[]
-molecule_tests[]
+molecule_tests["Alkene/alkane test"] = "Alkenes react with bromine (form colourless solution), alkanes don't (leave yellow solution)"
+molecule_tests["Test for carboxylic acids"] = "Suddenly releases Carbon Dioxide after being mixed with Sodium Bicarbonate."
+molecule_tests["Test for alcohols"] = "Suddenly releases hydrogen after being mixed with Sodium metal"
+molecule_tests["Test for nitrogen"] = "Heat organic compound with sodium metal, acidify, then add iron(ii) sulfate. Prussian blue colour should be produced"
+molecule_tests["Test for sulfur"] = "Heat organic compound with sodium metal, acidify, then sodium nitroprusside. Violet colour should be produced"
