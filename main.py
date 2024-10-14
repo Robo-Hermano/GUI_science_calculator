@@ -140,14 +140,14 @@ class Sci_Calculator:
       self.intro.forget()
     except:
       pass
-    self.constants = tk.Frame(self.master)
+    self.constantframe = tk.Frame(self.master)
     constant_names = CONSTANTS.keys()
     constant_values = CONSTANTS.values()
     for i in range(6):
       for j in range(6):
-        constant = tk.Button(self.constants, text = constant_names[i+j], command = lambda(self.messagebox_display(constant_names[i+j],constant_values[i+j])))
+        constant = tk.Button(self.constantframe, text = constant_names[i+j], command = lambda(self.messagebox_display(constant_names[i+j],constant_values[i+j])))
         constant.grid(row = i, column = j)
-    go_back = tk.Button(self.constants, text = "Return to main menu", command = lambda(self.return_to_menu(self.constants, "main_menu")))
+    go_back = tk.Button(self.constantframe, text = "Return to main menu", command = lambda(self.return_to_menu(self.constantframe, "main_menu")))
     go_back.grid(row = 6, column = 3)
 
   def vocabulary(self):
@@ -157,10 +157,18 @@ class Sci_Calculator:
     except:
       pass
     self.vocabframe = tk.Frame(self.master)
+    test_types = TESTS.keys()
+    test_descriptions = TESTS.values()
+    for i in range(4):
+      for j in range(5):
+        test = tk.Button(self.vocabframe, text = test_types[i+j], command = lambda(self.messagebox_display(test_types[i+j],test_descriptions[i+j])))
+        test.grid(row = i, column = j)
+    go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda(self.return_to_menu(self.vocabframe, "main_menu")))
+    go_back.grid(row = 5, column = 3)
     
 
   def messagebox_display(self, key, value):
-    messagebox.showinfo(f"{key} = {value}")
+    messagebox.showinfo(f"{key}: {value}")
   
   def conversions(self):
     try:
