@@ -5,7 +5,6 @@ import "NEA-science_GUI-calculator/infos.py" as INFO-FILE
 CONSTANTS = INFO-FILE.constants_dictionary
 TESTS = INFO-FILE.molecule_tests
 AMINOS = INFO-FILE.amino_acids
-VOCAB = INFO-FILE.bio_vocab
 
 #will use for undo and redo
 class Stack:
@@ -107,9 +106,11 @@ class Sci_Calculator:
     self.punnett = tk.Button(self.bio_frame, text = "Punnett Squares", command = self.punnett_squares)
     self.punnett.grid(row = 1, column = 0)
     self.aminos = tk.Button(self.bio_frame, text = "Amino Acids", command = self.amino_acids)
-    self.aminos.grid(row = 2, column = 0)
+    self.aminos.grid(row = 1, column = 1)
     self.cells = tk.Button(self.bio_frame, text = "Cell Diagrams", command = self.cell_diagrams)
-    self.cells.grid(row = 1, column = 1)
+    self.cells.grid(row = 1, column = 2)
+    go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu(self.bio_frame, "main menu")))
+    go_back.grid(row = 2, column = 1)
   def calculations(self):
     try:
       self.buttonframe.forget()
