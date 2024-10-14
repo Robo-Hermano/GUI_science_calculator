@@ -37,6 +37,8 @@ class Sci_Calculator:
     self.master.state("zoomed")
     self.master.title("Science Calculator")
     self.main_menu()
+
+  
   def main_menu(self):
     self.intro = tk.Label(self.master, text = "MAIN MENU", font = ("Times", 20))
     self.intro.pack()
@@ -55,7 +57,8 @@ class Sci_Calculator:
     self.units.grid(row = 1, column = 2)
     self.graphs = tk.Button(self.buttonframe, text = "Datasheet and Graphs", command = self.data_graphs)
     self.graphs.grid(row = 2, column = 1)
-    
+
+  
   def physics_menu(self):
     try:
       self.buttonframe.forget()
@@ -73,6 +76,9 @@ class Sci_Calculator:
     self.circuits.grid(row = 1, column = 2)
     go_back = tk.Button(self.physics_frame, text = "Return to main menu", command = lambda(self.return_to_menu(self.physics_frame, "main_menu")))
     go_back.grid(row = 2, column = 1)
+
+
+  
   def chem_menu(self):
     try:
       self.buttonframe.forget()
@@ -94,6 +100,9 @@ class Sci_Calculator:
     self.chemical.grid(row = 2, column = 1)
     go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu(self.chem_frame, "main_menu")))
     go_back.grid(row = 2, column = 2)
+
+
+  
   def bio_menu(self):
     try:
       self.buttonframe.forget()
@@ -111,30 +120,41 @@ class Sci_Calculator:
     self.cells.grid(row = 1, column = 2)
     go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu(self.bio_frame, "main menu")))
     go_back.grid(row = 2, column = 1)
+
+
+  
   def calculations(self):
     try:
       self.buttonframe.forget()
       self.intro.forget()
     except:
       pass
+
+  
   def display_constants(self):
     try:
       self.buttonframe.forget()
       self.intro.forget()
     except:
       pass
+
+  
   def conversions(self):
     try:
       self.buttonframe.forget()
       self.intro.forget()
     except:
       pass
+
+  
   def data_graphs(self):
     try:
       self.buttonframe.forget()
       self.intro.forget()
     except:
       pass
+
+  
   
   def return_to_menu(self, frame, menu):
     frame.forget()
