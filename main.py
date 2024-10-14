@@ -143,12 +143,12 @@ class Sci_Calculator:
     constant_values = CONSTANTS.values()
     for i in range(6):
       for j in range(6):
-        constant = tk.Button(self.constants, text = constant_names[i+j], command = lambda(self.display_constant_value(constant_values[i+j])))
+        constant = tk.Button(self.constants, text = constant_names[i+j], command = lambda(self.display_constant_value(constant_names[i+j],constant_values[i+j])))
         constant.grid(row = i, column = j)
     go_back = tk.Button(self.constants, text = "Return to main menu", command = lambda(self.return_to_menu(self.constants, "main_menu")))
     go_back.grid(row = 6, column = 3)
-  def display_constant_value(self, value):
-    pass
+  def display_constant_value(self, data, value):
+    messagebox.showinfo(f"{data} = {value}")
   
   def conversions(self):
     try:
