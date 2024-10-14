@@ -51,3 +51,8 @@ molecule_tests["Test for oxygen"] = "relights splint."
 molecule_tests["Test for carbon dioxide"] = "Turns limewater cloudy."
 molecule_tests["Test for chlorine"] = "Turns blue litmus paper into bleached white."
 molecule_tests["Test for ammonia"] = "Turns red litmus paper blue."
+molecule_tests["Test for halides"] = "Acid added and then Aqueous Silver Nitrate. A precipitate will be formed if halides are present: white for chloride, creamy for bromide, yellow for iodide"
+molecule_tests["Tollen's test"] = "Aldehydes react with Tollen's reagent to form metallic silver, while ketones don't."
+molecule_tests["Cation flame test"] = "Lilac for K+, red for Na+, green-blue for Cu+ and yellow for Ca+"
+molecule_tests["Cation precipitate test"] = "Reacts with hydroxide to form precipitate. Cu2+: green, Cu+: red-orange, Na+: blue, Zn+ white and dissolves in excess, Ca+: white and doesn't dissolve in excess"
+molecule_tests[""]
