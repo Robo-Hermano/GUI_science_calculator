@@ -56,6 +56,8 @@ class Sci_Calculator:
     self.constants.grid(row = 1, column = 1)
     self.units = tk.Button(self.buttonframe, text = "Convert Units", command = self.conversions)
     self.units.grid(row = 1, column = 2)
+    self.tests = tk.Button(self.buttonframe, text = "Tests for molecules and substances", command = self.vocabulary)
+    self.tests.grid(row = 2, column = 0)
     self.graphs = tk.Button(self.buttonframe, text = "Datasheet and Graphs", command = self.data_graphs)
     self.graphs.grid(row = 2, column = 1)
 
@@ -119,8 +121,6 @@ class Sci_Calculator:
     self.aminos.grid(row = 1, column = 1)
     self.cells = tk.Button(self.bio_frame, text = "Cell Diagrams", command = self.cell_diagrams)
     self.cells.grid(row = 1, column = 2)
-    self.molecules = tk.Button(self.bio_frame, text = "Molecule tests", command = self.molecule_tests)
-    self.molecules.grid(row = 2, column = 0)
     go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu(self.bio_frame, "main menu")))
     go_back.grid(row = 2, column = 1)
     
@@ -145,12 +145,22 @@ class Sci_Calculator:
     constant_values = CONSTANTS.values()
     for i in range(6):
       for j in range(6):
-        constant = tk.Button(self.constants, text = constant_names[i+j], command = lambda(self.display_constant_value(constant_names[i+j],constant_values[i+j])))
+        constant = tk.Button(self.constants, text = constant_names[i+j], command = lambda(self.messagebox_display(constant_names[i+j],constant_values[i+j])))
         constant.grid(row = i, column = j)
     go_back = tk.Button(self.constants, text = "Return to main menu", command = lambda(self.return_to_menu(self.constants, "main_menu")))
     go_back.grid(row = 6, column = 3)
-  def display_constant_value(self, data, value):
-    messagebox.showinfo(f"{data} = {value}")
+
+  def vocabulary(self):
+    try:
+      self.buttonframe.forget()
+      self.intro.forget()
+    except:
+      pass
+    self.vocabframe = tk.Frame(self.master)
+    
+
+  def messagebox_display(self, key, value):
+    messagebox.showinfo(f"{key} = {value}")
   
   def conversions(self):
     try:
@@ -169,9 +179,9 @@ class Sci_Calculator:
 
   
   
-  def return_to_menu(self, frame, menu):
+  def return_to_menu(self, frame, chosen_menu):
     frame.forget()
-    returning = {"main_menu": self.main_menu(), "physics_menu": self.physics_menu(), "chem_menu", self.chem_menu, "bio_menu", self.bio_menu}
-    returning[menu]
+    returning_nav = {"main_menu": self.main_menu(), "physics_menu": self.physics_menu(), "chem_menu", self.chem_menu, "bio_menu", self.bio_menu}
+    returning_nav[chosen_menu]
 gui_calc = Sci_Calculator()
 gui_calc.master.mainloop()
