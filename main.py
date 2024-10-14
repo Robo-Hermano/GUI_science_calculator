@@ -119,10 +119,12 @@ class Sci_Calculator:
     self.aminos.grid(row = 1, column = 1)
     self.cells = tk.Button(self.bio_frame, text = "Cell Diagrams", command = self.cell_diagrams)
     self.cells.grid(row = 1, column = 2)
+    self.molecules = tk.Button(self.bio_frame, text = "Molecule tests", command = self.molecule_tests)
+    self.molecules.grid(row = 2, column = 0)
     go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu(self.bio_frame, "main menu")))
     go_back.grid(row = 2, column = 1)
-
-
+    
+  
   
   def calculations(self):
     try:
