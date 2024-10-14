@@ -2,10 +2,10 @@ import tkinter as tk
 from tkinter import messagebox
 import math
 import numpy as np
-import "NEA-science_GUI-calculator/infos.py" as INFO-FILE
-CONSTANTS = INFO-FILE.constants_dictionary
-TESTS = INFO-FILE.molecule_tests
-AMINOS = INFO-FILE.amino_acids
+import "NEA-science_GUI-calculator/infos.py" as INFO_FILE
+CONSTANTS = INFO_FILE.constants_dictionary
+TESTS = INFO_FILE.molecule_tests
+AMINOS = INFO_FILE.amino_acids
 
 #will use for undo and redo
 class Stack:
