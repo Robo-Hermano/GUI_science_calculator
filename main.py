@@ -1,5 +1,6 @@
 import tkinter as tk
 import math
+import numpy as np
 import "NEA-science_GUI-calculator/infos.py" as INFO-FILE
 CONSTANTS = INFO-FILE.constants_dictionary
 TESTS = INFO-FILE.molecule_tests
@@ -102,6 +103,13 @@ class Sci_Calculator:
       pass
     self.bio_frame = tk.Frame(self.master)
     display = tk.Label(self.bio_frame, text = "BIOLOGY MENU", font = ("Times", 20))
+    display.grid(row = 0, column = 0)
+    self.punnett = tk.Button(self.bio_frame, text = "Punnett Squares", command = self.punnett_squares)
+    self.punnett.grid(row = 1, column = 0)
+    self.aminos = tk.Button(self.bio_frame, text = "Amino Acids", command = self.amino_acids)
+    self.aminos.grid(row = 2, column = 0)
+    self.cells = tk.Button(self.bio_frame, text = "Cell Diagrams", command = self.cell_diagrams)
+    self.cells.grid(row = 1, column = 1)
   def calculations(self):
     try:
       self.buttonframe.forget()
