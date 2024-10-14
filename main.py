@@ -79,12 +79,29 @@ class Sci_Calculator:
       self.intro.forget()
     except:
       pass
+    self.chem_frame = tk.Frame(self.master)
+    display = tk.Label(self.chem_frame, text = "CHEMISTRY MENU", font = ("Times", 20))
+    display.grid(row = 0, column = 1)
+    self.react_series = tk.Button(self.chem_frame, text = "Reactivity Series", command = self.reactivity)
+    self.react_series.grid(row = 1, column = 0)
+    self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = self.display_periodic_table)
+    self.periodic_table.grid(row = 1, column = 1)
+    self.balancing = tk.Button(self.chem_frame, text = "Balancing Equations", command = self.balance_equations)
+    self.balancing.grid(row = 1, column = 2)
+    self.ionic = tk.Button(self.chem_frame, text = "Ionic Equations", command = self.ionic_equations)
+    self.ionic.grid(row = 2, column = 0)
+    self.chemical = tk.Button(self.chem_frame, text = "Calculating Chemical equations", command = self.chemical_equations)
+    self.chemical.grid(row = 2, column = 1)
+    go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu(self.chem_frame, "main_menu")))
+    go_back.grid(row = 2, column = 2)
   def bio_menu(self):
     try:
       self.buttonframe.forget()
       self.intro.forget()
     except:
       pass
+    self.bio_frame = tk.Frame(self.master)
+    display = tk.Label(self.bio_frame, text = "BIOLOGY MENU", font = ("Times", 20))
   def calculations(self):
     try:
       self.buttonframe.forget()
