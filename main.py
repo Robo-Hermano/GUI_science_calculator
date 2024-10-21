@@ -1,10 +1,15 @@
 #to do list
+#menu (DONE)
 #normal calculator
 #graphs
 #conversions
-#physics sub stuff: SUVAT, circuits, rays
-#bio sub stuff: amino acids, punnett squares, cell diagrams
-#chem sub stuff: periodic table, reactivity series, ionic equations, chemical equations, balancing equations
+#constants (DONE)
+#vocabulary (DONE)
+#physics menu (DONE) and sub stuff: SUVAT, circuits, rays
+#bio menu (DONE) and sub stuff: amino acids (DONE), punnett squares, cell diagrams
+#chem menu (DONE) and sub stuff: periodic table, reactivity series, ionic equations, chemical equations, balancing equations
+
+#debugging
 
 import tkinter as tk
 from tkinter import messagebox
