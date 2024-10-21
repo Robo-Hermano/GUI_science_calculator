@@ -1,11 +1,14 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter.PIL import ImageTk, Image
 import math
 import numpy as np
 import "NEA-science_GUI-calculator/infos.py" as INFO_FILE
 CONSTANTS = INFO_FILE.constants_dictionary
 TESTS = INFO_FILE.molecule_tests
 AMINOS = INFO_FILE.amino_acids
+
+table = ImageTk.PhotoImage(Image.open("periodic_table.png"))
 
 #will use for undo and redo
 class Stack:
@@ -191,5 +194,6 @@ class Sci_Calculator:
     frame.forget()
     returning_nav = {"main_menu": self.main_menu(), "physics_menu": self.physics_menu(), "chem_menu", self.chem_menu, "bio_menu", self.bio_menu}
     returning_nav[chosen_menu]
+    
 gui_calc = Sci_Calculator()
 gui_calc.master.mainloop()
