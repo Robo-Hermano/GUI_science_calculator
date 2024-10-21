@@ -1,5 +1,5 @@
 #to do list
-#calculate
+#normal calculator
 #graphs
 #conversions
 #physics sub stuff: SUVAT, circuits, rays
