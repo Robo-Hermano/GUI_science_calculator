@@ -16,7 +16,8 @@ CONSTANTS = INFO_FILE.constants_dictionary
 TESTS = INFO_FILE.molecule_tests
 AMINOS = INFO_FILE.amino_acids
 
-table = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
+table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
+table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
 
 #will use for undo and redo
 class Stack:
