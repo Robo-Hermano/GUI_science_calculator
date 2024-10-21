@@ -1,3 +1,11 @@
+#to do list
+#calculate
+#graphs
+#conversions
+#physics sub stuff: SUVAT, circuits, rays
+#bio sub stuff: amino acids, punnett squares, cell diagrams
+#chem sub stuff: periodic table, reactivity series, ionic equations, chemical equations, balancing equations
+
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.PIL import ImageTk, Image
