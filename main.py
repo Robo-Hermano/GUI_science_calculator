@@ -89,7 +89,7 @@ class Sci_Calculator:
     self.rays.grid(row = 1, column = 1)
     self.circuits = tk.Button(self.physics_frame, text = "Circuit diagrams", command = self.circuit_diagrams)
     self.circuits.grid(row = 1, column = 2)
-    go_back = tk.Button(self.physics_frame, text = "Return to main menu", command = lambda(self.return_to_menu(self.physics_frame, "main_menu")))
+    go_back = tk.Button(self.physics_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.physics_frame])))
     go_back.grid(row = 2, column = 1)
 
 
@@ -113,7 +113,7 @@ class Sci_Calculator:
     self.ionic.grid(row = 2, column = 0)
     self.chemical = tk.Button(self.chem_frame, text = "Calculating Chemical equations", command = self.chemical_equations)
     self.chemical.grid(row = 2, column = 1)
-    go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu(self.chem_frame, "main_menu")))
+    go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.chem_frame])))
     go_back.grid(row = 2, column = 2)
 
 
@@ -133,10 +133,23 @@ class Sci_Calculator:
     self.aminos.grid(row = 1, column = 1)
     self.cells = tk.Button(self.bio_frame, text = "Cell Diagrams", command = self.cell_diagrams)
     self.cells.grid(row = 1, column = 2)
-    go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu(self.bio_frame, "main menu")))
+    go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu("main menu", args = [self.bio_frame])))
     go_back.grid(row = 2, column = 1)
     
-  
+  def amino_acids(self):
+    self.bio_frame.forget()
+    label = tk.Label(self.master, text = "Enter RNA codon")
+    label.pack()
+    error_label = tk.Label(self.master, text = "Invalid codon inputted")
+    text = tk.Text(self.master)
+    text.pack()
+    button2 = tk.Button(self.master, text = "go back", command = lambda(self.return_to_menu("bio_menu", args = [label, error_label, text, button2, button])))
+    button2.pack()
+    try:
+      button = tk.Button(self.master, text = "click here once you enter codon", command = lambda(self.messagebox_display(text.get(), AMINOS[text.get()])))
+      button.pack()
+    except:
+      error_label.pack()
   
   def calculations(self):
     try:
@@ -159,7 +172,7 @@ class Sci_Calculator:
       for j in range(6):
         constant = tk.Button(self.constantframe, text = constant_names[i+j], command = lambda(self.messagebox_display(constant_names[i+j],constant_values[i+j])))
         constant.grid(row = i, column = j)
-    go_back = tk.Button(self.constantframe, text = "Return to main menu", command = lambda(self.return_to_menu(self.constantframe, "main_menu")))
+    go_back = tk.Button(self.constantframe, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.constantframe])))
     go_back.grid(row = 6, column = 3)
 
   def vocabulary(self):
@@ -175,7 +188,7 @@ class Sci_Calculator:
       for j in range(5):
         test = tk.Button(self.vocabframe, text = test_types[i+j], command = lambda(self.messagebox_display(test_types[i+j],test_descriptions[i+j])))
         test.grid(row = i, column = j)
-    go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda(self.return_to_menu(self.vocabframe, "main_menu")))
+    go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.vocabframe])))
     go_back.grid(row = 5, column = 3)
     
 
@@ -199,8 +212,9 @@ class Sci_Calculator:
 
   
   
-  def return_to_menu(self, frame, chosen_menu):
-    frame.forget()
+  def return_to_menu(self, chosen_menu, args):
+    for i in args:
+      i.forget()
     returning_nav = {"main_menu": self.main_menu(), "physics_menu": self.physics_menu(), "chem_menu", self.chem_menu, "bio_menu", self.bio_menu}
     returning_nav[chosen_menu]
     
