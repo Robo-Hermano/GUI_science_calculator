@@ -121,7 +121,11 @@ class Sci_Calculator:
     go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.chem_frame])))
     go_back.grid(row = 2, column = 2)
 
-
+  def dislay_image(self, img):
+    table = tk.Label(self.master, image = img)
+    table.place(x=0, y=0, width = 500, height = 400)
+    return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu("chem_menu", args = [reactivity_table, return_button])))
+    return_button.pack(x = 250, y = 450)
   
   def bio_menu(self):
     try:
