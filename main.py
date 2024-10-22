@@ -5,9 +5,9 @@
 #conversions
 #constants (DONE)
 #vocabulary (DONE)
-#physics menu (DONE) and sub stuff: SUVAT, circuits, rays
-#bio menu (DONE) and sub stuff: amino acids (DONE), punnett squares, cell diagrams
-#chem menu (DONE) and sub stuff: periodic table, reactivity series, ionic equations, chemical equations, balancing equations
+#physics menu (DONE) and sub stuff: SUVAT (NEXT), circuits, rays
+#bio menu (DONE) and sub stuff: amino acids (DONE), punnett squares, cell diagrams (NEXT)
+#chem menu (DONE) and sub stuff: periodic table (DONE), reactivity series (DONE), ionic equations, chemical equations, balancing equations
 
 #debugging
 
