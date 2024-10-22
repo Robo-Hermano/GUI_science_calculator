@@ -108,9 +108,9 @@ class Sci_Calculator:
     self.chem_frame = tk.Frame(self.master)
     display = tk.Label(self.chem_frame, text = "CHEMISTRY MENU", font = ("Times", 20))
     display.grid(row = 0, column = 1)
-    self.react_series = tk.Button(self.chem_frame, text = "Reactivity Series", command = lambda(self.display_image(table_reactivity)))
+    self.react_series = tk.Button(self.chem_frame, text = "Reactivity Series", command = lambda(self.display_image(table_reactivity, self.chem_menu)))
     self.react_series.grid(row = 1, column = 0)
-    self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = lambda(self.display_image(table_periodic)))
+    self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = lambda(self.display_image(table_periodic, self.chem_menu)))
     self.periodic_table.grid(row = 1, column = 1)
     self.balancing = tk.Button(self.chem_frame, text = "Balancing Equations", command = self.balance_equations)
     self.balancing.grid(row = 1, column = 2)
@@ -121,7 +121,8 @@ class Sci_Calculator:
     go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.chem_frame])))
     go_back.grid(row = 2, column = 2)
 
-  def dislay_image(self, img):
+  def dislay_image(self, img, frame):
+    frame.forget()
     table = tk.Label(self.master, image = img)
     table.place(x=0, y=0, width = 500, height = 400)
     return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu("chem_menu", args = [reactivity_table, return_button])))
