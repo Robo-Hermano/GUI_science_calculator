@@ -97,7 +97,9 @@ class Sci_Calculator:
     go_back = tk.Button(self.physics_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.physics_frame])))
     go_back.grid(row = 2, column = 1)
 
-
+  def suvat(self):
+    self.physics_frame.forget()
+    #continue this
   
   def chem_menu(self):
     try:
@@ -108,9 +110,9 @@ class Sci_Calculator:
     self.chem_frame = tk.Frame(self.master)
     display = tk.Label(self.chem_frame, text = "CHEMISTRY MENU", font = ("Times", 20))
     display.grid(row = 0, column = 1)
-    self.react_series = tk.Button(self.chem_frame, text = "Reactivity Series", command = lambda(self.display_image(table_reactivity, self.chem_menu)))
+    self.react_series = tk.Button(self.chem_frame, text = "Reactivity Series", command = lambda(self.display_image(table_reactivity, self.chem_menu, "chem_menu")))
     self.react_series.grid(row = 1, column = 0)
-    self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = lambda(self.display_image(table_periodic, self.chem_menu)))
+    self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = lambda(self.display_image(table_periodic, self.chem_menu, "chem_menu")))
     self.periodic_table.grid(row = 1, column = 1)
     self.balancing = tk.Button(self.chem_frame, text = "Balancing Equations", command = self.balance_equations)
     self.balancing.grid(row = 1, column = 2)
@@ -120,13 +122,6 @@ class Sci_Calculator:
     self.chemical.grid(row = 2, column = 1)
     go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.chem_frame])))
     go_back.grid(row = 2, column = 2)
-
-  def dislay_image(self, img, frame):
-    frame.forget()
-    table = tk.Label(self.master, image = img)
-    table.place(x=0, y=0, width = 500, height = 400)
-    return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu("chem_menu", args = [reactivity_table, return_button])))
-    return_button.pack(x = 250, y = 450)
   
   def bio_menu(self):
     try:
@@ -145,6 +140,10 @@ class Sci_Calculator:
     self.cells.grid(row = 1, column = 2)
     go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu("main menu", args = [self.bio_frame])))
     go_back.grid(row = 2, column = 1)
+
+  def cells_menu(self):
+    self.bio_frame.forget()
+    #continue this
     
   def amino_acids(self):
     self.bio_frame.forget()
@@ -200,10 +199,6 @@ class Sci_Calculator:
         test.grid(row = i, column = j)
     go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.vocabframe])))
     go_back.grid(row = 5, column = 3)
-    
-
-  def messagebox_display(self, key, value):
-    messagebox.showinfo(f"{key}: {value}")
   
   def conversions(self):
     try:
@@ -220,7 +215,15 @@ class Sci_Calculator:
     except:
       pass
 
-  
+  def dislay_image(self, img, frame, menu):
+    frame.forget()
+    table = tk.Label(self.master, image = img)
+    table.place(x=0, y=0, width = 500, height = 400)
+    return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu(menu, args = [reactivity_table, return_button])))
+    return_button.pack(x = 250, y = 450)
+
+  def messagebox_display(self, key, value):
+    messagebox.showinfo(f"{key}: {value}")
   
   def return_to_menu(self, chosen_menu, args):
     for i in args:
