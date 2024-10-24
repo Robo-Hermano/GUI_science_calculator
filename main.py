@@ -99,7 +99,78 @@ class Sci_Calculator:
 
   def suvat(self):
     self.physics_frame.forget()
-    #continue this
+    self.suvat_frame = tk.Frame(self.master)
+    main_label = tk.Label(self.suvat_frame, text = "Enter 3 suvat values you know, otherwise it won't be enough")
+    main_label.grid(row = 0, column = 2)
+    u_label = tk.Label(self.suvat_frame, text = "Enter initial speed")
+    u_label.grid(row = 1, column = 0)
+    self.u_text = tk.Text(self.suvat_frame)
+    self.u_text.grid(row = 2, column = 0)
+    v_label = tk.Label(self.suvat_frame, text = "Enter final speed")
+    v_label.grid(row = 1, column = 1)
+    self.v_text = tk.Text(self.suvat_frame)
+    self.v_text.grid(row = 2, column = 1)
+    a_label = tk.Label(self.suvat_frame, text = "Enter acceleration")
+    a_label.grid(row = 1, column = 2)
+    self.a_text = tk.Text(self.suvat_frame)
+    self.a_text.grid(row = 2, column = 2)
+    s_label = tk.Label(self.suvat_frame, text = "Enter displacement")
+    s_label.grid(row = 1, column = 3)
+    self.s_text = tk.Text(self.suvat_frame)
+    self.s_text.grid(row = 2, column = 3)
+    t_label = tk.Label(self.suvat_frame, text = "Enter time")
+    t_label.grid(row = 1, column = 4)
+    self.t_text = tk.Text(self.suvat_frame)
+    self.t_text.grid(row = 2, column = 4)
+    confirm_button = tk.Button(self.suvat_frame, text = "Enter when done", commannd = self.suvat_calculations)
+    confirm_button.grid(row = 3, column = 3)
+    go_back = tk.Button(self.master, text = "Return to physics menu", command = lambda(self.return_to_menu("physics_menu", args = [go_back, self.suvat_frame])))
+    go_back.pack()
+
+  def suvat_calculations(self):
+    try:
+      u = self.u_text.get()
+      v = self.v_text.get()
+      a = self.a_text.get()
+      s = self.s_text.get()
+      t = self.t_text.get()
+      if t <= 0:
+        raise ValueError("incorrect entering")
+      elif u == '' and v == '':
+        u = (s-(0.5*a*t**2))/t
+        v = u + a*t
+      elif u == '' and a == '':
+        a = (v*t-s)/(t**2)
+        u = v-a*t
+      elif u == '' and s == '':
+        u = v-a*t
+        s = u*t+0.5*a*t**2
+      elif u == '' and t == '':
+        u = math.sqrt(v**2-2*a*s)
+        t = 2*s/(v+u)
+      elif v == '' and a == '':
+        a = (s-u*t)/t**2
+        v = u+a*t
+      elif v == '' and s == '':
+        v = u+a*t
+        s = u*t+0.5*a*t**2
+      elif v == '' and t == '':
+        v = math.sqrt(u**2+2*a*s)
+        t = 2*s/(v+u)
+      elif a == '' and s == '':
+        s = 0.5*t*(v+u)
+        a = (s-u*t)/t**2
+      elif a == '' and t == '':
+        t = 2*s/(v+u)
+        a = (s-u*t)/t**2
+      elif s == '' and t == '':
+        s = (v**2-u**2)/2/a
+        t = 2*s/(v+u)
+      show_vals = tk.Label(self.suvat_frame, text = f"inital speed: {u}, final speed: {v}, time taken: {t}, displacement: {s}, acceleration: {a}")
+      show_vals.grid(row = 3, column = 2)
+    except:
+      error_label = tk.Label(self.suvat_frame, text = "not enough values entered or time entered incorrectly")
+      error_label.grid(row = 3, column = 2)
   
   def chem_menu(self):
     try:
