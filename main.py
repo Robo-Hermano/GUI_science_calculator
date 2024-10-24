@@ -2,10 +2,10 @@
 #menu (DONE)
 #normal calculator
 #graphs
-#conversions
+#conversions (NEXT)
 #constants (DONE)
 #vocabulary (DONE)
-#physics menu (DONE) and sub stuff: SUVAT (DONE), circuits, rays
+#physics menu (DONE) and sub stuff: SUVAT (DONE), circuits, rays (NEXT)
 #bio menu (DONE) and sub stuff: amino acids (DONE), punnett squares, cell diagrams (DONE)
 #chem menu (DONE) and sub stuff: periodic table (DONE), reactivity series (DONE), ionic equations, chemical equations, balancing equations
 
