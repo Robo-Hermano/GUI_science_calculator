@@ -207,14 +207,10 @@ class Sci_Calculator:
     self.punnett.grid(row = 1, column = 0)
     self.aminos = tk.Button(self.bio_frame, text = "Amino Acids", command = self.amino_acids)
     self.aminos.grid(row = 1, column = 1)
-    self.cells = tk.Button(self.bio_frame, text = "Cell Diagrams", command = self.cell_diagrams)
+    self.cells = tk.Button(self.bio_frame, text = "Animal Cell Diagram", command = lambda(self.display_image(cell_image, self.bio_frame, "bio_menu")))
     self.cells.grid(row = 1, column = 2)
     go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu("main menu", args = [self.bio_frame])))
     go_back.grid(row = 2, column = 1)
-
-  def cells_menu(self):
-    self.bio_frame.forget()
-    #continue this
     
   def amino_acids(self):
     self.bio_frame.forget()
@@ -290,7 +286,7 @@ class Sci_Calculator:
     frame.forget()
     table = tk.Label(self.master, image = img)
     table.place(x=0, y=0, width = 500, height = 400)
-    return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu(menu, args = [reactivity_table, return_button])))
+    return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu(menu, args = [table, return_button])))
     return_button.pack(x = 250, y = 450)
 
   def messagebox_display(self, key, value):
