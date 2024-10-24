@@ -6,7 +6,7 @@
 #constants (DONE)
 #vocabulary (DONE)
 #physics menu (DONE) and sub stuff: SUVAT (DONE), circuits, rays
-#bio menu (DONE) and sub stuff: amino acids (DONE), punnett squares, cell diagrams (NEXT)
+#bio menu (DONE) and sub stuff: amino acids (DONE), punnett squares, cell diagrams (DONE)
 #chem menu (DONE) and sub stuff: periodic table (DONE), reactivity series (DONE), ionic equations, chemical equations, balancing equations
 
 #debugging
@@ -23,6 +23,7 @@ AMINOS = INFO_FILE.amino_acids
 
 table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
 table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
+cells_image = ImageTk.PhotoImage(Image.open("cells.jpg")) #used for cell diagrams
 
 #will use for undo and redo
 class Stack:
@@ -284,9 +285,9 @@ class Sci_Calculator:
 
   def dislay_image(self, img, frame, menu):
     frame.forget()
-    table = tk.Label(self.master, image = img)
-    table.place(x=0, y=0, width = 500, height = 400)
-    return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu(menu, args = [table, return_button])))
+    my_img = tk.Label(self.master, image = img)
+    my_img.place(x=0, y=0, width = 500, height = 400)
+    return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu(menu, args = [my_img, return_button])))
     return_button.pack(x = 250, y = 450)
 
   def messagebox_display(self, key, value):
