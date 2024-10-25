@@ -1,8 +1,8 @@
 #to do list
 #menu (DONE)
 #normal calculator
-#graphs
-#conversions (NEXT)
+#graphs (NEXT)
+#conversions 
 #constants (DONE)
 #vocabulary (DONE)
 #physics menu (DONE) and sub stuff: SUVAT (DONE), circuits, rays (NEXT)
