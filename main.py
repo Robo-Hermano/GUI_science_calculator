@@ -5,7 +5,7 @@
 #conversions 
 #constants (DONE)
 #vocabulary (DONE)
-#physics menu (DONE) and sub stuff: SUVAT (DONE), circuits, rays (NEXT)
+#physics menu (DONE) and sub stuff: SUVAT (DONE), circuits, rays (DONE)
 #bio menu (DONE) and sub stuff: amino acids (DONE), punnett squares, cell diagrams (DONE)
 #chem menu (DONE) and sub stuff: periodic table (DONE), reactivity series (DONE), ionic equations, chemical equations, balancing equations
 
@@ -24,6 +24,8 @@ AMINOS = INFO_FILE.amino_acids
 table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
 table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
 cells_image = ImageTk.PhotoImage(Image.open("cells.jpg")) #used for cell diagrams
+convex_ray = 
+concave_ray = 
 
 #will use for undo and redo
 class Stack:
@@ -172,7 +174,18 @@ class Sci_Calculator:
     except:
       error_label = tk.Label(self.suvat_frame, text = "not enough values entered or time entered incorrectly")
       error_label.grid(row = 3, column = 2)
-  
+
+  def ray_diagrams(self):
+    self.physics_frame.forget()
+    convex_img = tk.Label(self.master, img = convex_ray)
+    convex_img.place(x=0, y=0, width = 200, height = 200)
+    convex_informational = tk.Label(self.master, text = "If object is further away than focal point, an upside down, diminished real image will be produced. \n If not a ray will be virtually retracted and a virtual but upright and magnified image will be produced")
+    convex_informational.pack(x = 250, y = 100)
+    concave_img = tk.Label(self.master, img = concave_ray)
+    concave_img.place(x=0, y = 210, width = 200, height = 200)
+    concave_informational = tk.Label(self.master, text = "For a concave ray, the image produced has to be virtual, whether it's upright or upside down, magnified or diminished depends on how the object is placed in relation to focal points")
+    concave_informational.pack(x=250, y = 310)
+    go_back = tk.Button(self.master, text = "go back", command = lambda(self.return_to_menu("physics_menu", args = [convex_img, convex_informational, concave_img, concave_informational, go_back])))
   def chem_menu(self):
     try:
       self.buttonframe.forget()
@@ -282,6 +295,38 @@ class Sci_Calculator:
       self.intro.forget()
     except:
       pass
+    self.x_list = []
+    self.y_list = []
+    x_label = tk.Label(self.master, text = "Enter x value")
+    x_label.pack()
+    self.x_value = tk.Text(self.master)
+    self.x_value.pack()
+    y_label = tk.Label(self.master, text = "Enter y value")
+    y_label.pack()
+    self.y_value = tk.Text(self.master)
+    self.y_value.pack()
+    self.graph_errors = tk.Label(self.master, text = "Return to menu and come back to reset x and y")
+    self.graph_errors.pack()
+    record_button = tk.Button(self.master, text = "Record values", command = self.record_values_for_graph)
+    record_button.pack()
+    graph_button = tk.Button(self.master, text = "Draw graph from entered data", command = self.display_graph)
+    graph_button.pack()
+    go_back = tk.Button(self.master, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [x_label, x_value, y_label, y_value, record_button, graph_button, self.graph_errors])))
+
+  def record_values_for_graph(self)
+    try:
+      x_val = self.x_value.get()
+      y_val = self.y_value.get()
+      x_val = float(x_val)
+      y_val = float(y_val)
+      self.x_list.append(x_val)
+      self.y_list.append(y_val)
+    except:
+      self.graphs_errors.configure(text = "Please input valid data for both x and y")
+
+  def display_graph(self):
+    
+      
 
   def dislay_image(self, img, frame, menu):
     frame.forget()
