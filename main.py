@@ -1,7 +1,7 @@
 #to do list
 #menu (DONE)
 #normal calculator
-#graphs (NEXT)
+#graphs (DONE)
 #conversions 
 #constants (DONE)
 #vocabulary (DONE)
@@ -15,6 +15,8 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter.PIL import ImageTk, Image
 import math
+import matplotlib.pyplot as plt
+from matplotlib.back_ends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
 import "NEA-science_GUI-calculator/infos.py" as INFO_FILE
 CONSTANTS = INFO_FILE.constants_dictionary
@@ -295,6 +297,11 @@ class Sci_Calculator:
       self.intro.forget()
     except:
       pass
+    try:
+      self.figure.forget()
+      self.go_back.forget()
+    except:
+      pass
     self.x_list = []
     self.y_list = []
     self.x_label = tk.Label(self.master, text = "Enter x value")
@@ -334,9 +341,15 @@ class Sci_Calculator:
     self.record_button.forget()
     self.graph_button.forget()
     self.go_back.forget()
-
-    go_back = tk.Button(self.master, text = "go back", command = self.data_graphs)
-    go_back.pack()
+    self.figure = plt.Figure(figsize = (50,50), dpi = 100)
+    self.ax = self.figure.add_subplot(111)
+    self.canvas = FigureCanvasTkAgg(self.figure, master=self)
+    self.canvas.get_tk_widget().pack(side = tk.TOP, fill = tk.BOTH, expand = 1)
+    for i in range(len(self.x_list)):
+      self.ax.plot(self.x_list[i], self.y_list[i])
+    self.canvas.draw()
+    self.go_back = tk.Button(self.master, text = "go back", command = self.data_graphs)
+    self.go_back.pack(side = tk.BOTTOM, pady = 10)
 
   def dislay_image(self, img, frame, menu):
     frame.forget()
