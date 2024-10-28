@@ -322,7 +322,7 @@ class Sci_Calculator:
       self.x_list.append(x_val)
       self.y_list.append(y_val)
     except:
-      self.graphs_errors.configure(text = "Please input valid data for both x and y")
+      self.graphs_errors.config(text = "Please input valid data for both x and y")
 
   def display_graph(self):
     
