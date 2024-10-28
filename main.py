@@ -297,21 +297,22 @@ class Sci_Calculator:
       pass
     self.x_list = []
     self.y_list = []
-    x_label = tk.Label(self.master, text = "Enter x value")
-    x_label.pack()
+    self.x_label = tk.Label(self.master, text = "Enter x value")
+    self.x_label.pack()
     self.x_value = tk.Text(self.master)
     self.x_value.pack()
-    y_label = tk.Label(self.master, text = "Enter y value")
-    y_label.pack()
+    self.y_label = tk.Label(self.master, text = "Enter y value")
+    self.y_label.pack()
     self.y_value = tk.Text(self.master)
     self.y_value.pack()
     self.graph_errors = tk.Label(self.master, text = "Return to menu and come back to reset x and y")
     self.graph_errors.pack()
-    record_button = tk.Button(self.master, text = "Record values", command = self.record_values_for_graph)
-    record_button.pack()
-    graph_button = tk.Button(self.master, text = "Draw graph from entered data", command = self.display_graph)
-    graph_button.pack()
-    go_back = tk.Button(self.master, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [x_label, x_value, y_label, y_value, record_button, graph_button, self.graph_errors])))
+    self.record_button = tk.Button(self.master, text = "Record values", command = self.record_values_for_graph)
+    self.record_button.pack()
+    self.graph_button = tk.Button(self.master, text = "Draw graph from entered data", command = self.display_graph)
+    self.graph_button.pack()
+    self.go_back = tk.Button(self.master, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.x_label, self.x_value, self.y_label, self.y_value, self.record_button, self.graph_button, self.graph_errors, self.go_back])))
+    self.go_back.pack()
 
   def record_values_for_graph(self)
     try:
@@ -325,8 +326,17 @@ class Sci_Calculator:
       self.graphs_errors.config(text = "Please input valid data for both x and y")
 
   def display_graph(self):
-    
-      
+    self.x_label.forget()
+    self.y_label.forget()
+    self.x_value.forget()
+    self.y_value.forget()
+    self.graph_errors.forget()
+    self.record_button.forget()
+    self.graph_button.forget()
+    self.go_back.forget()
+
+    go_back = tk.Button(self.master, text = "go back", command = self.data_graphs)
+    go_back.pack()
 
   def dislay_image(self, img, frame, menu):
     frame.forget()
