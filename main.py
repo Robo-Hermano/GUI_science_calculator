@@ -22,6 +22,7 @@ import "NEA-science_GUI-calculator/infos.py" as INFO_FILE
 CONSTANTS = INFO_FILE.constants_dictionary
 TESTS = INFO_FILE.molecule_tests
 AMINOS = INFO_FILE.amino_acids
+CIRCUITS = INFO_FILE.circuit_definitions
 
 table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
 table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
