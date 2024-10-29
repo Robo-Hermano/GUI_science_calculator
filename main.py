@@ -1,8 +1,8 @@
 #to do list
-#normal calculator
-#conversions (NEXT)
-#bio sub stuff: punnett squares
-#chem sub stuff: ionic equations, chemical equations
+#normal calculator (Weekend or just not do it)
+#conversions (Thursday)
+#bio sub stuff: punnett squares (Thursday)
+#chem sub stuff: ionic equations (Friday), chemical equations (Friday)
 
 #debugging
 
