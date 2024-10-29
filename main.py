@@ -216,7 +216,12 @@ class Sci_Calculator:
     self.img6.grid(row = 2, column = 1)
     self.button6 = tk.Button(self.circuit_frame, text = "Thermistor", command = lambda(self.messagebox_display("Thermistor", CIRCUITS["Thermistor"])))
     self.button6.grid(row = 3, column = 1)
-    
+    self.img7 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("variable_resistor.png")))
+    self.img7.grid(row = 2, column = 2)
+    self.button7 = tk.Button(self.circuit_frame, text = "Variable Resistor", command = lambda(self.messagebox_display("Variable Resistor", CIRCUITS["Variable Resistor"])))
+    self.button7.grid(row = 3, column = 2)
+    go_back = tk.Button(self.circuits_frame, text = "Go back", command = lambda(self.return_to_menu("physics_menu", args = [self.circuit_frame])))
+    go_back.grid(row = 3, column = 3)
   
   def chem_menu(self):
     try:
