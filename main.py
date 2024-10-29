@@ -28,7 +28,7 @@ table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for 
 table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
 cells_image = ImageTk.PhotoImage(Image.open("cells.jpg")) #used for cell diagrams
 convex_ray = "convex.webp"
-concave_ray = 
+concave_ray = "concave.webp"
 
 #will use for undo and redo
 class Stack:
