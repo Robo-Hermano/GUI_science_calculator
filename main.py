@@ -27,8 +27,8 @@ CIRCUITS = INFO_FILE.circuit_definitions
 table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
 table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
 cells_image = ImageTk.PhotoImage(Image.open("cells.jpg")) #used for cell diagrams
-convex_ray = "convex.webp"
-concave_ray = "concave.webp"
+convex_ray = ImageTk.PhotoImage(Image.open("convex.webp"))
+concave_ray = ImageTk.PhotoImage(Image.open("concave.webp"))
 
 #will use for undo and redo
 class Stack:
@@ -189,6 +189,12 @@ class Sci_Calculator:
     concave_informational = tk.Label(self.master, text = "For a concave ray, the image produced has to be virtual, whether it's upright or upside down, magnified or diminished depends on how the object is placed in relation to focal points")
     concave_informational.pack(x=250, y = 310)
     go_back = tk.Button(self.master, text = "go back", command = lambda(self.return_to_menu("physics_menu", args = [convex_img, convex_informational, concave_img, concave_informational, go_back])))
+
+  def circuit_diagrams(self):
+    self.physics_frame.forget()
+    self.circuit_frame = tk.Frame(self.master)
+    self
+  
   def chem_menu(self):
     try:
       self.buttonframe.forget()
