@@ -18,7 +18,7 @@ import math
 import matplotlib.pyplot as plt
 from matplotlib.back_ends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
-import "NEA-science_GUI-calculator/infos.py" as INFO_FILE
+import "infos.py" as INFO_FILE
 CONSTANTS = INFO_FILE.constants_dictionary
 TESTS = INFO_FILE.molecule_tests
 AMINOS = INFO_FILE.amino_acids
