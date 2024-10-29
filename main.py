@@ -208,6 +208,14 @@ class Sci_Calculator:
     self.img4.grid(row = 0, column = 3)
     self.button4 = tk.Button(self.circuit_frame, text = "Heater", command = lambda(self.messagebox_display("Heater", CIRCUITS["Heater"])))
     self.button4.grid(row = 1, column = 3)
+    self.img5 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("potentiometer.png")))
+    self.img5.grid(row = 2, column = 0)
+    self.button5 = tk.Button(self.circuit_frame, text = "Potentiometer", command = lambda(self.messagebox_display("Potentiometer", CIRCUITS["Potentiometer"])))
+    self.button5.grid(row = 3, column = 0)
+    self.img6 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("thermistor.png")))
+    self.img6.grid(row = 2, column = 1)
+    self.button6 = tk.Button(self.circuit_frame, text = "Thermistor", command = lambda(self.messagebox_display("Thermistor", CIRCUITS["Thermistor"])))
+    self.button6.grid(row = 3, column = 1)
     
   
   def chem_menu(self):
