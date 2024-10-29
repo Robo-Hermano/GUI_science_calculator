@@ -17,7 +17,6 @@ from tkinter.PIL import ImageTk, Image
 import math
 import matplotlib.pyplot as plt
 from matplotlib.back_ends.backend_tkagg import FigureCanvasTkAgg
-import numpy as np
 import "infos.py" as INFO_FILE
 CONSTANTS = INFO_FILE.constants_dictionary
 TESTS = INFO_FILE.molecule_tests
@@ -193,7 +192,15 @@ class Sci_Calculator:
   def circuit_diagrams(self):
     self.physics_frame.forget()
     self.circuit_frame = tk.Frame(self.master)
-    self
+    self.img1 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("LDR.png")))
+    self.img1.grid(row = 0, column = 0)
+    self.button1 = tk.Button(self.circuit_frame, text = "Light Dependent Resistor", command = lambda(self.messagebox_display("Light Dependent Resistor",CIRCUITS["Light Dependent Resistor"])))
+    self.button1.grid(row = 1, column = 0)
+    self.img2 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("bulb.png")))
+    self.img2.grid(row = 0, column = 1)
+    self.button2 = tk.Button(self.circuit_frame, text = "Bulb", command = lambda(self.messagebox_display("Bulb", CIRCUITS["Bulb"])))
+    self.button2.grid(row = 1, column = 1)
+    
   
   def chem_menu(self):
     try:
