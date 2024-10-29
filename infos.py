@@ -133,7 +133,6 @@ circuit_definitions["Bulb"] = "Literally just a bulb. As p.d. increases resistan
 circuit_definitions["Diode"] = "Can be used to convert ac to dc. Silicon diodes only let current in when pd >= 0.6V. Can take any current and so any resistance, not an ohmic component"
 circuit_definitions["Thermistor"] = "Negative temperature coefficient, resistance decreases with temperature. Semiconductor used, more electrons released as temp increases, which increases current and so decreases resistance. Not an ohmic component"
 circuit_definitions["Variable resistor"] = "You can manually change resistance. Ohmic component"
-circuit_definitions["Potential divider"] = "Serves similar role as variable resistor. Splits p.d. into a fraction of its value. Ohmic component"
 circuit_definitions["Light Dependent Resistor"] = "Resistance decreases with light intensity. Semiconductor used, more electrons released with light. Not an ohmic component"
 circuit_definitions["Heater"] = "Ohmic component unless it's really hot"
 circuit_definitions["Potentiometer"] = "Used to measure resistance, p.d. or current. Can measure to different precisions"
