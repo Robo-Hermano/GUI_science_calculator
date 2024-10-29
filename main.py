@@ -4,7 +4,7 @@
 #bio sub stuff: punnett squares (Thursday)
 #chem sub stuff: ionic equations (Friday), chemical equations (Friday)
 
-#debugging
+#debugging (Weekend if I can be asked)
 
 import tkinter as tk
 from tkinter import messagebox
