@@ -12,7 +12,7 @@ from tkinter.PIL import ImageTk, Image
 import math
 import matplotlib.pyplot as plt
 from matplotlib.back_ends.backend_tkagg import FigureCanvasTkAgg
-import "infos.py" as INFO_FILE
+import infos as INFO_FILE
 CONSTANTS = INFO_FILE.constants_dictionary
 TESTS = INFO_FILE.molecule_tests
 AMINOS = INFO_FILE.amino_acids
@@ -272,6 +272,11 @@ class Sci_Calculator:
       button.pack()
     except:
       error_label.pack()
+
+  def punnet_squares(self):
+    self.bio_frame.forget()
+    self.punnett_frame = tk.Frame(self.master)
+    
   
   def calculations(self):
     try:
