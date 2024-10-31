@@ -70,7 +70,7 @@ class Sci_Calculator:
     self.operations.grid(row = 1, column = 0)
     self.constants = tk.Button(self.buttonframe, text = "Display Constants", command = self.display_constants)
     self.constants.grid(row = 1, column = 1)
-    self.units = tk.Button(self.buttonframe, text = "Convert Units Help", command = self.conversions)
+    self.units = tk.Button(self.buttonframe, text = "Convert Units", command = self.conversions)
     self.units.grid(row = 1, column = 2)
     self.tests = tk.Button(self.buttonframe, text = "Tests for molecules and substances", command = self.vocabulary)
     self.tests.grid(row = 2, column = 0)
@@ -357,6 +357,50 @@ class Sci_Calculator:
       self.intro.forget()
     except:
       pass
+  length = {"m": 1, "cm": 0.01, "mm": 0.001, "um": 10**-6, "nm": 10**-9, "km": 1000}
+  time = {"s": 1, "m": 60, "h": 3600, "d": 3600*24, "ms": 0.001}
+  volume = {"l": 1, "ml": 0.001}
+  self.conversion_frame = tk.Frame(self.master)
+  label1 = tk.Label(self.conversion_frame, text = "Enter value")
+  label1.grid(row = 0, column = 1)
+  label2 = tk.Label(self.conversion_frame, text = "Enter unit")
+  label2.grid(row = 0, column = 2)
+  text1 = tk.Text(self.conversion_frame)
+  text1.grid(row = 1, column = 1)
+  text2 = tk.Text(self.conversion_frame)
+  text2.grid(row = 1, column = 2)
+  label3 = tk.Label(self.conversion_frame, text = "Enter unit converted to")
+  label3.grid(row = 2, column = 2)
+  text3 = tk.Label(self.conversion_frame)
+  text3.grid(row = 3, column = 2)
+  self.conversion_button = tk.Button(self.conversion_frame, text = "Click once you're ready to convert", command = lambda(self.convert(text1, text2, text3)))
+  self.conversion_button.grid(row = 0, column = 0)
+  go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.conversion_frame])))
+  go_back.grid(row = 2, column = 1)
+  def convert(self, input_val, input_unit, converted_unit):
+    val = input_val.get()
+    unit1 = input_unit.get()
+    unit2 = converted_unit.get()
+    try:
+      if unit1 in length.keys() or unit1 in time.keys() or unit1 in volume.keys():
+        new_val = val*length[unit1]/length[unit2]
+      elif unit1 == "K" and unit2 == "C":
+        new_val = val - 273.15
+      elif unit1 == "C" and unit2 == "K":
+        new_val = val + 273.15
+      elif unit1 == "C" and unit2 == "F":
+        new_val = val*1.8+32
+      elif unit1 == "K" and unit2 == "F":
+        new_val = (val-273.15)*1.8+32
+      elif unit1 == "F" and unit2 == "C":
+        new_val = (val-32)/1.8
+      elif unit1 == "F" and unit2 == "K":
+        new_val = (val-32)/1.8+273.15
+      else:
+        raise ValueError()
+      self.messagebox_display("Value in new unit", new_val)
+    except:
+      self.conversion_button.config(text = "Sorry. Your units are either not in conversion dictionary or an input entered is invalid")
   
   
   def data_graphs(self):
