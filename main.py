@@ -1,6 +1,5 @@
 #to do list
 #normal calculator (Weekend or just not do it)
-#conversions (Thursday)
 #chem sub stuff: ionic equations (Friday), chemical equations (Friday)
 
 #debugging (Weekend if I can be asked)
