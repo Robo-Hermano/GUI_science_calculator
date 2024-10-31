@@ -1,7 +1,6 @@
 #to do list
 #normal calculator (Weekend or just not do it)
 #conversions (Thursday)
-#bio sub stuff: punnett squares (Thursday)
 #chem sub stuff: ionic equations (Friday), chemical equations (Friday)
 
 #debugging (Weekend if I can be asked)
@@ -71,7 +70,7 @@ class Sci_Calculator:
     self.operations.grid(row = 1, column = 0)
     self.constants = tk.Button(self.buttonframe, text = "Display Constants", command = self.display_constants)
     self.constants.grid(row = 1, column = 1)
-    self.units = tk.Button(self.buttonframe, text = "Convert Units", command = self.conversions)
+    self.units = tk.Button(self.buttonframe, text = "Convert Units Help", command = self.conversions)
     self.units.grid(row = 1, column = 2)
     self.tests = tk.Button(self.buttonframe, text = "Tests for molecules and substances", command = self.vocabulary)
     self.tests.grid(row = 2, column = 0)
