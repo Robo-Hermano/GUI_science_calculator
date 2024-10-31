@@ -273,11 +273,45 @@ class Sci_Calculator:
     except:
       error_label.pack()
 
-  def punnet_squares(self):
+  def punnett_squares(self):
     self.bio_frame.forget()
     self.punnett_frame = tk.Frame(self.master)
+    explain_label = tk.Label(self.punnett_frame, text = "Fill out alleles of parents")
+    explain_label.grid(row = 0, column = 0)
+    self.father_one = tk.Text(self.punnett_frame)
+    self.father_one.grid(row = 0, column = 1)
+    self.father_two = tk.Text(self.punnett_frame)
+    self.father_two.grid(row = 0, column = 2)
+    self.mother_one = tk.Text(self.punnett_frame)
+    self.mother_one.grid(row = 1, column = 0)
+    self.mother_two = tk.Text(self.punnett_frame)
+    self.mother_two.grid(row = 2, column = 0)
+    self.genotype_one = tk.Button(self.punnett_frame, text = "Genotype One", command = None)
+    self.genotype_one.grid(row = 1, column = 1)
+    self.genotype_two = tk.Button(self.punnett_frame, text = "Genotype Two", command = None)
+    self.genotype_two.grid(row = 1, column = 2)
+    self.genotype_three = tk.Button(self.punnett_frame, text = "Genotype Three", command = None)
+    self.genotype_three.grid(row = 2, column = 1)
+    self.genotype_four = tk.Button(self.punnett_frame, text = "Genotype Four", command = None)
+    self.genotype_four.grid(row = 2, column = 2)
+    self.geno_button = tk.Button(self.punnett_frame, text = "Get possible Genotypes", command = self.get_genotypes)
+    self.geno_button.grid(row = 3, column = 0)
+    go_back = tk.Button(self.punnett_frame, text = "Return to Biology Menu", command = lambda(self.return_to_menu("bio_menu", args = [self.punnett_frame])))
+    go_back.grid(row = 3, column = 1)
+
+  def get_genotypes(self):
+    father_one = self.father_one.get()
+    father_two = self.father_two.get()
+    mother_one = self.mother_one.get()
+    mother_two = self.mother_two.get()
+    if father_one.upper() == father_two.upper() and father_one.upper() == mother_one.upper() and father_one.upper() == mother_two.upper() and father_one.isalpha() and len(father_one) == 1:
+      self.genotype_one.config(text = sorted(father_one + mother_one))
+      self.genotype_two.config(text = sorted(father_two + mother_one))
+      self.genotype_three.config(text = sorted(father_one + mother_two))
+      self.genotype_four.config(text = sorted(father_two + mother_two))
+    else:
+      self.geno_button.config(text = "Alleles entered are invalid")
     
-  
   def calculations(self):
     try:
       self.buttonframe.forget()
@@ -324,7 +358,7 @@ class Sci_Calculator:
       self.intro.forget()
     except:
       pass
-
+  
   
   def data_graphs(self):
     try:
