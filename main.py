@@ -228,14 +228,10 @@ class Sci_Calculator:
     self.react_series.grid(row = 1, column = 0)
     self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = lambda(self.display_image(table_periodic, self.chem_menu, "chem_menu")))
     self.periodic_table.grid(row = 1, column = 1)]
-    self.ionic = tk.Button(self.chem_frame, text = "Ionic Equations", command = self.ionic_equations)
+    self.ionic = tk.Button(self.chem_frame, text = "Ionic Equations (COMING SOON)", state = DISABLED)
     self.ionic.grid(row = 1, column = 2)]
     go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.chem_frame])))
     go_back.grid(row = 2, column = 1)
-
-  def ionic_equations(self):
-    self.chem_frame.forget()
-    #just this for today, might do actual revision afterwards
   
   def bio_menu(self):
     try:
