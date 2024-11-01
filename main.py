@@ -1,8 +1,7 @@
 #to do list
-#normal calculator (Weekend or just not do it)
-#chem sub stuff: ionic equations (Friday), chemical equations (Friday)
-
-#debugging (Weekend if I can be asked)
+#normal calculator (Saturday)
+#chem sub stuff: ionic equations (Friday)
+#debugging (Sunday)
 
 import tkinter as tk
 from tkinter import messagebox
@@ -228,15 +227,15 @@ class Sci_Calculator:
     self.react_series = tk.Button(self.chem_frame, text = "Reactivity Series", command = lambda(self.display_image(table_reactivity, self.chem_menu, "chem_menu")))
     self.react_series.grid(row = 1, column = 0)
     self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = lambda(self.display_image(table_periodic, self.chem_menu, "chem_menu")))
-    self.periodic_table.grid(row = 1, column = 1)
-    self.balancing = tk.Button(self.chem_frame, text = "Balancing Equations", command = self.balance_equations)
-    self.balancing.grid(row = 1, column = 2)
+    self.periodic_table.grid(row = 1, column = 1)]
     self.ionic = tk.Button(self.chem_frame, text = "Ionic Equations", command = self.ionic_equations)
-    self.ionic.grid(row = 2, column = 0)
-    self.chemical = tk.Button(self.chem_frame, text = "Calculating Chemical equations", command = self.chemical_equations)
-    self.chemical.grid(row = 2, column = 1)
+    self.ionic.grid(row = 1, column = 2)]
     go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.chem_frame])))
-    go_back.grid(row = 2, column = 2)
+    go_back.grid(row = 2, column = 1)
+
+  def ionic_equations(self):
+    self.chem_frame.forget()
+    #just this for today, might do normal calculator if it is very short
   
   def bio_menu(self):
     try:
