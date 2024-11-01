@@ -235,7 +235,7 @@ class Sci_Calculator:
 
   def ionic_equations(self):
     self.chem_frame.forget()
-    #just this for today, might do normal calculator if it is very short
+    #just this for today, might do actual revision afterwards
   
   def bio_menu(self):
     try:
