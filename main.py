@@ -1,6 +1,5 @@
 #to do list
 #normal calculator (Saturday)
-#chem sub stuff: ionic equations (Friday)
 #debugging (Sunday)
 
 import tkinter as tk
