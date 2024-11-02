@@ -1,6 +1,4 @@
-#to do list
-#normal calculator (Sunday)
-#debugging (Saturday)
+#to do list: a LOT of debugging (especially on calculator)
 
 import tkinter as tk
 from tkinter import messagebox
