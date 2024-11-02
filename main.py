@@ -409,7 +409,7 @@ class Sci_Calculator:
         operand_list.append(self.action_list.peek())
         self.action_list.pop()
       operand_list = operand_list[::-1]
-      self.action_list = [int(''.join(operand_list))]
+      self.action_list = [eval(''.join(operand_list))]
     else:
       self.action_list.push(button_clicked)
     self.output_label.config(text = self.action_list.view())
