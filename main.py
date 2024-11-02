@@ -42,8 +42,6 @@ class Stack:
     except:
       return None
 
-actions_list = Stack()
-
 class Sci_Calculator:
   def __init__(self):
     self.master = tk.Tk()
@@ -310,8 +308,73 @@ class Sci_Calculator:
       self.intro.forget()
     except:
       pass
-
+  messagebox.showinfo("second value if it's there is what is used after you press shift")
+  self.action_list = Stack()
+  self.output_frame = tk.Frame(self.master, side = tk.TOP())
+  self.calc_frame = tk.Frame(self.master, side = tk.BOTTOM())
+  self.output_label = tk.Label(self.output_frame)
+  self.output_label.pack(expand = True)
+  #button time
+  go_back = tk.Button(self.calc_frame, text = "EXIT", command = lambda(self.return_to_menu("main_menu", args = [self.output_frame, self.calc_frame])))
+  go_back.grid(row = 0, column = 0)
+  self.shift_button = tk.Button(self.calc_frame, text = "shift", command = lambda(self.implement_button(self.shift_button)))
+  self.shift_button.grid(row = 0, column = 1)
+  self.shift_on = False
+  self.log_button = tk.Button(self.calc_frame, text = "log", command = lambda(self.implement_button(self.log_button)))
+  self.log_button.grid(row = 0, column = 2)
+  self.ln_button = tk.Button(self.calc_frame, text = "ln//e", command = lambda(self.implement_button(self.ln_button)))
+  self.ln_button.grid(row = 0, column = 3)
+  self.sin_button = tk.Button(self.calc_frame, text = "sin//sin^-1", command = lambda(self.implement_button(self.sin_button)))
+  self.sin_button.grid(row = 0, column = 4)
+  self.cos_button = tk.Button(self.calc_frame, text = "cos//cos^-1", command = lambda(self.implement_button(self.cos_button)))
+  self.cos_button.grid(row = 1, column = 0)
+  self.tan_button = tk.Button(self.calc_frame, text = "tan//tan^-1", command = lambda(self.implement_button(self.tan_button)))
+  self.tan_button.grid(row = 1, column = 1)
+  self.bracket_one = tk.Button(self.calc_frame, text = "(", command = lambda(self.implement_button("("))
+  self.bracket_one.grid(row = 1, column = 2)                        
+  self.bracket_two = tk.Button(self.calc_frame, text = ")", command = lambda(self.implement_button(self.bracket_two)))
+  self.bracket_two.grid(row = 1, column = 3)
+  self.power_button = tk.Button(self.calc_frame, text = "^", command = lambda(self.implement_button(self.power_button)))
+  self.power_button.grid(row = 1, column = 4)
+  self.seven_button = tk.Button(self.calc_frame, text = "7", command = lambda(self.implement_button(self.seven_button)))
+  self.seven_button.grid(row = 2, column = 0)
+  self.eight_button = tk.Button(self.calc_frame, text = "8", command = lambda(self.implement_button(self.eight_button)))
+  self.eight_button.grid(row = 2, column = 1)
+  self.nine_button = tk.Button(self.calc_frame, text = "9", command = lambda(self.implement_button(self.nine_button)))
+  self.nine_button.grid(row = 2, column = 2)
+  self.undo_button = tk.Button(self.calc_frame, text = "UNDO", command = lambda(self.implement_button(self.undo_button)))
+  self.undo_button.grid(row = 2, column = 3)
+  self.ac_button = tk.Button(self.calc_frame, text = "AC", command = lambda(self.implement_button(self.ac_button)))
+  self.ac_button.grid(row = 2, column = 4)
+  self.four_button = tk.Button(self.calc_frame, text = "4", command = lambda(self.implement_button(self.four_button)))
+  self.four_button.grid(row = 3, column = 0)
+  self.five_button = tk.Button(self.calc_frame, text = "5", command = lambda(self.implement_button(self.five_button)))
+  self.five_button.grid(row = 3, column = 1)
+  self.six_button = tk.Button(self.calc_frame, text = "6", command = lambda(self.implement_button(self.six_button)))
+  self.six_button.grid(row = 3, column = 2)
+  self.multiply_button = tk.Button(self.calc_frame, text = "X", command = lambda(self.implement_button(self.multiply_button)))
+  self.multiply_button.grid(row = 3, column = 3)
+  self.divide_button = tk.Button(self.calc_frame, text = "/", command = lambda(self.implement_button(self.divide_button)))
+  self.divide_button.grid(row = 3, column = 4)
+  self.one_button = tk.Button(self.calc_frame, text = "1", command = lambda(self.implement_button(self.one_button)))
+  self.one_button.grid(row = 4, column = 0)
+  self.two_button = tk.Button(self.calc_frame, text = "2", command = lambda(self.implement_button(self.two_button)))
+  self.two_button.grid(row = 4, column = 1)
+  self.three_button = tk.Button(self.calc_frame, text = "3", command = lambda(self.implement_button(self.three_button)))
+  self.three_button.grid(row = 4, column = 2)
+  self.plus_button = tk.Button(self.calc_frame, text = "+", command = lambda(self.implement_button(self.plus_button)))
+  self.plus_button.grid(row = 4, column = 3)
+  self.minus_button = tk.Button(self.calc_frame, text = "-", command = lambda(self.implement_button(self.minus_button)))
+  self.minus_button.grid(row = 4, column = 4)
+  self.zero_button = tk.Button(self.calc_frame, text = "0", command = lambda(self.implement_button(self.zero_button)))
+  self.zero_button.grid(row = 5, column = 1)
+  self.decimal_button = tk.Button(self.calc_frame, text = ".", command = lambda(self.implement_button(self.decimal_button)))
+  self.decimal_button.grid(row = 5, column = 2)
+  self.equals_button = tk.Button(self.calc_frame, text = "=", command = lambda(self.implement_button(self.equals_button)))
+  self.equals_button.grid(row = 5, column = 3)
   
+  def implement_button(self, button_clicked):
+    
   def display_constants(self):
     try:
       self.buttonframe.forget()
@@ -370,6 +433,7 @@ class Sci_Calculator:
   self.conversion_button.grid(row = 0, column = 0)
   go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.conversion_frame])))
   go_back.grid(row = 2, column = 1)
+  
   def convert(self, input_val, input_unit, converted_unit):
     val = input_val.get()
     unit1 = input_unit.get()
