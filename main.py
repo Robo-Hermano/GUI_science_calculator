@@ -6,6 +6,7 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter.PIL import ImageTk, Image
 import math
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.back_ends.backend_tkagg import FigureCanvasTkAgg
 import infos as INFO_FILE
@@ -36,12 +37,12 @@ class Stack:
 
   def pop(self):
     try:
-      popped = self.stack[-1]
       self.stack.remove(self.stack[-1])
-      return popped
     except:
-      return None
-
+      pass
+  def view(self):
+    return "".join(self.stack)
+    
 class Sci_Calculator:
   def __init__(self):
     self.master = tk.Tk()
@@ -320,7 +321,7 @@ class Sci_Calculator:
   self.shift_button = tk.Button(self.calc_frame, text = "shift", command = lambda(self.implement_button(self.shift_button)))
   self.shift_button.grid(row = 0, column = 1)
   self.shift_on = False
-  self.log_button = tk.Button(self.calc_frame, text = "log", command = lambda(self.implement_button(self.log_button)))
+  self.log_button = tk.Button(self.calc_frame, text = "log", command = lambda(self.implement_button("math.log")))
   self.log_button.grid(row = 0, column = 2)
   self.ln_button = tk.Button(self.calc_frame, text = "ln//e", command = lambda(self.implement_button(self.ln_button)))
   self.ln_button.grid(row = 0, column = 3)
@@ -374,6 +375,46 @@ class Sci_Calculator:
   self.equals_button.grid(row = 5, column = 3)
   
   def implement_button(self, button_clicked):
+    if button_clicked == self.shift_button:
+      if self.shift_on:
+        self.shift_on = False
+      else:
+        self.shift_on = True
+    elif button_clicked == self.undo_button:
+      self.action_list.pop()
+    elif button_clicked == self.ac_button:
+      while self.action_list.peek() != None:
+        self.action_list.pop()
+    elif button_clicked == self.ln_button:
+      if self.shift_on:
+        self.action_list.push("e")
+      else:
+        self.action_list.push("math.ln")
+    elif button_clicked == self.sin_button:
+      if self.shift_on:
+        self.action_list.push("np.arcsin")
+      else:
+        self.action_list.push("math.sin")
+    elif button_clicked == self.cos_button:
+      if self.shift_on:
+        self.action_list.push("np.arccos")
+      else:
+        self.action_list.push("math.cos")
+    elif button_clicked == self.tan_button:
+      if self.shift_on:
+        self.action_list.push("np.arctan")
+      else:
+        self.action_list.push("math.tan")
+    elif button_clicked == self.equals_button:
+      operand_list = []
+      while self.action_list.peek() != None:
+        operand_list.append(self.action_list.peek())
+        self.action_list.pop()
+      operand_list = operand_list[::-1]
+      self.action_list = [int(''.join(operand_list))]
+    else:
+      self.action_list.push(button_clicked)
+    self.output_label.config(text = self.action_list.view())
     
   def display_constants(self):
     try:
