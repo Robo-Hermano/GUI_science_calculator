@@ -2,14 +2,14 @@
 
 import tkinter as tk
 from tkinter import messagebox
-from tkinter.PIL import ImageTk, Image
+from PIL import ImageTk, Image
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.back_ends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import sys
 sys.path.append("/GUI_science_calculator/infos.py")
-import "infos.py" as INFO_FILE
+import infos as INFO_FILE
 
 CONSTANTS, AMINOS, CIRCUITS, TESTS = INFO_FILE.get_infos()
 
@@ -87,7 +87,7 @@ class Sci_Calculator:
     self.rays.grid(row = 1, column = 1)
     self.circuits = tk.Button(self.physics_frame, text = "Circuit diagrams", command = self.circuit_diagrams)
     self.circuits.grid(row = 1, column = 2)
-    go_back = tk.Button(self.physics_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.physics_frame])))
+    go_back = tk.Button(self.physics_frame, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.physics_frame]))
     go_back.grid(row = 2, column = 1)
 
   def suvat(self):
@@ -117,7 +117,7 @@ class Sci_Calculator:
     self.t_text.grid(row = 2, column = 4)
     confirm_button = tk.Button(self.suvat_frame, text = "Enter when done", commannd = self.suvat_calculations)
     confirm_button.grid(row = 3, column = 3)
-    go_back = tk.Button(self.master, text = "Return to physics menu", command = lambda(self.return_to_menu("physics_menu", args = [go_back, self.suvat_frame])))
+    go_back = tk.Button(self.master, text = "Return to physics menu", command = lambda:self.return_to_menu("physics_menu", args = [go_back, self.suvat_frame]))
     go_back.pack()
 
   def suvat_calculations(self):
@@ -175,40 +175,40 @@ class Sci_Calculator:
     concave_img.place(x=0, y = 210, width = 200, height = 200)
     concave_informational = tk.Label(self.master, text = "For a concave ray, the image produced has to be virtual, whether it's upright or upside down, magnified or diminished depends on how the object is placed in relation to focal points")
     concave_informational.pack(x=250, y = 310)
-    go_back = tk.Button(self.master, text = "go back", command = lambda(self.return_to_menu("physics_menu", args = [convex_img, convex_informational, concave_img, concave_informational, go_back])))
+    go_back = tk.Button(self.master, text = "go back", command = lambda:self.return_to_menu("physics_menu", args = [convex_img, convex_informational, concave_img, concave_informational, go_back]))
 
   def circuit_diagrams(self):
     self.physics_frame.forget()
     self.circuit_frame = tk.Frame(self.master)
     self.img1 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("LDR.png")))
     self.img1.grid(row = 0, column = 0)
-    self.button1 = tk.Button(self.circuit_frame, text = "Light Dependent Resistor", command = lambda(self.messagebox_display("Light Dependent Resistor",CIRCUITS["Light Dependent Resistor"])))
+    self.button1 = tk.Button(self.circuit_frame, text = "Light Dependent Resistor", command = lambda:self.messagebox_display("Light Dependent Resistor",CIRCUITS["Light Dependent Resistor"]))
     self.button1.grid(row = 1, column = 0)
     self.img2 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("bulb.png")))
     self.img2.grid(row = 0, column = 1)
-    self.button2 = tk.Button(self.circuit_frame, text = "Bulb", command = lambda(self.messagebox_display("Bulb", CIRCUITS["Bulb"])))
+    self.button2 = tk.Button(self.circuit_frame, text = "Bulb", command = lambda:self.messagebox_display("Bulb", CIRCUITS["Bulb"]))
     self.button2.grid(row = 1, column = 1)
     self.img3 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("diode.png")))
     self.img3.grid(row = 0, column = 2)
-    self.button3 = tk.Button(self.circuit_frame, text = "Diode", command = lambda(self.messagebox_display("Diode", CIRCUITS["Diode"])))
+    self.button3 = tk.Button(self.circuit_frame, text = "Diode", command = lambda:self.messagebox_display("Diode", CIRCUITS["Diode"]))
     self.button3.grid(row = 1, column = 2)
     self.img4 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("heater.png")))
     self.img4.grid(row = 0, column = 3)
-    self.button4 = tk.Button(self.circuit_frame, text = "Heater", command = lambda(self.messagebox_display("Heater", CIRCUITS["Heater"])))
+    self.button4 = tk.Button(self.circuit_frame, text = "Heater", command = lambda:self.messagebox_display("Heater", CIRCUITS["Heater"]))
     self.button4.grid(row = 1, column = 3)
     self.img5 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("potentiometer.png")))
     self.img5.grid(row = 2, column = 0)
-    self.button5 = tk.Button(self.circuit_frame, text = "Potentiometer", command = lambda(self.messagebox_display("Potentiometer", CIRCUITS["Potentiometer"])))
+    self.button5 = tk.Button(self.circuit_frame, text = "Potentiometer", command = lambda:self.messagebox_display("Potentiometer", CIRCUITS["Potentiometer"]))
     self.button5.grid(row = 3, column = 0)
     self.img6 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("thermistor.png")))
     self.img6.grid(row = 2, column = 1)
-    self.button6 = tk.Button(self.circuit_frame, text = "Thermistor", command = lambda(self.messagebox_display("Thermistor", CIRCUITS["Thermistor"])))
+    self.button6 = tk.Button(self.circuit_frame, text = "Thermistor", command = lambda:self.messagebox_display("Thermistor", CIRCUITS["Thermistor"]))
     self.button6.grid(row = 3, column = 1)
     self.img7 = tk.Label(self.circuit_frame, img = ImageTk.PhotoImage(Image.open("variable_resistor.png")))
     self.img7.grid(row = 2, column = 2)
-    self.button7 = tk.Button(self.circuit_frame, text = "Variable Resistor", command = lambda(self.messagebox_display("Variable Resistor", CIRCUITS["Variable Resistor"])))
+    self.button7 = tk.Button(self.circuit_frame, text = "Variable Resistor", command = lambda:self.messagebox_display("Variable Resistor", CIRCUITS["Variable Resistor"]))
     self.button7.grid(row = 3, column = 2)
-    go_back = tk.Button(self.circuits_frame, text = "Go back", command = lambda(self.return_to_menu("physics_menu", args = [self.circuit_frame])))
+    go_back = tk.Button(self.circuits_frame, text = "Go back", command = lambda:self.return_to_menu("physics_menu", args = [self.circuit_frame]))
     go_back.grid(row = 3, column = 3)
   
   def chem_menu(self):
@@ -220,13 +220,13 @@ class Sci_Calculator:
     self.chem_frame = tk.Frame(self.master)
     display = tk.Label(self.chem_frame, text = "CHEMISTRY MENU", font = ("Times", 20))
     display.grid(row = 0, column = 1)
-    self.react_series = tk.Button(self.chem_frame, text = "Reactivity Series", command = lambda(self.display_image(table_reactivity, self.chem_menu, "chem_menu")))
+    self.react_series = tk.Button(self.chem_frame, text = "Reactivity Series", command = lambda:self.display_image(table_reactivity, self.chem_menu, "chem_menu"))
     self.react_series.grid(row = 1, column = 0)
-    self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = lambda(self.display_image(table_periodic, self.chem_menu, "chem_menu")))
-    self.periodic_table.grid(row = 1, column = 1)]
-    self.ionic = tk.Button(self.chem_frame, text = "Ionic Equations (COMING SOON)", state = DISABLED)
-    self.ionic.grid(row = 1, column = 2)]
-    go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.chem_frame])))
+    self.periodic_table = tk.Button(self.chem_frame, text = "Periodic Table", command = lambda:self.display_image(table_periodic, self.chem_menu, "chem_menu"))
+    self.periodic_table.grid(row = 1, column = 1)
+    self.ionic = tk.Button(self.chem_frame, text = "Ionic Equations (COMING SOON)")
+    self.ionic.grid(row = 1, column = 2)
+    go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.chem_frame]))
     go_back.grid(row = 2, column = 1)
   
   def bio_menu(self):
@@ -242,9 +242,9 @@ class Sci_Calculator:
     self.punnett.grid(row = 1, column = 0)
     self.aminos = tk.Button(self.bio_frame, text = "Amino Acids", command = self.amino_acids)
     self.aminos.grid(row = 1, column = 1)
-    self.cells = tk.Button(self.bio_frame, text = "Animal Cell Diagram", command = lambda(self.display_image(cell_image, self.bio_frame, "bio_menu")))
+    self.cells = tk.Button(self.bio_frame, text = "Animal Cell Diagram", command = lambda:self.display_image(cells_image, self.bio_frame, "bio_menu"))
     self.cells.grid(row = 1, column = 2)
-    go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda(self.return_to_menu("main menu", args = [self.bio_frame])))
+    go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda:self.return_to_menu("main menu", args = [self.bio_frame]))
     go_back.grid(row = 2, column = 1)
     
   def amino_acids(self):
@@ -254,10 +254,10 @@ class Sci_Calculator:
     error_label = tk.Label(self.master, text = "Invalid codon inputted")
     text = tk.Text(self.master)
     text.pack()
-    button2 = tk.Button(self.master, text = "go back", command = lambda(self.return_to_menu("bio_menu", args = [label, error_label, text, button2, button])))
+    button2 = tk.Button(self.master, text = "go back", command = lambda:self.return_to_menu("bio_menu", args = [label, error_label, text, button2, button]))
     button2.pack()
     try:
-      button = tk.Button(self.master, text = "click here once you enter codon", command = lambda(self.messagebox_display(text.get(), AMINOS[text.get()])))
+      button = tk.Button(self.master, text = "click here once you enter codon", command = lambda:self.messagebox_display(text.get(), AMINOS[text.get()]))
       button.pack()
     except:
       error_label.pack()
@@ -285,7 +285,7 @@ class Sci_Calculator:
     self.genotype_four.grid(row = 2, column = 2)
     self.geno_button = tk.Button(self.punnett_frame, text = "Get possible Genotypes", command = self.get_genotypes)
     self.geno_button.grid(row = 3, column = 0)
-    go_back = tk.Button(self.punnett_frame, text = "Return to Biology Menu", command = lambda(self.return_to_menu("bio_menu", args = [self.punnett_frame])))
+    go_back = tk.Button(self.punnett_frame, text = "Return to Biology Menu", command = lambda:self.return_to_menu("bio_menu", args = [self.punnett_frame]))
     go_back.grid(row = 3, column = 1)
 
   def get_genotypes(self):
@@ -314,62 +314,62 @@ class Sci_Calculator:
     self.output_label = tk.Label(self.output_frame)
     self.output_label.pack(expand = True)
     #button time
-    go_back = tk.Button(self.calc_frame, text = "EXIT", command = lambda(self.return_to_menu("main_menu", args = [self.output_frame, self.calc_frame])))
+    go_back = tk.Button(self.calc_frame, text = "EXIT", command = lambda:self.return_to_menu("main_menu", args = [self.output_frame, self.calc_frame]))
     go_back.grid(row = 0, column = 0)
-    self.shift_button = tk.Button(self.calc_frame, text = "shift", command = lambda(self.implement_button(self.shift_button)))
+    self.shift_button = tk.Button(self.calc_frame, text = "shift", command = lambda:self.implement_button(self.shift_button))
     self.shift_button.grid(row = 0, column = 1)
     self.shift_on = False
-    self.log_button = tk.Button(self.calc_frame, text = "log", command = lambda(self.implement_button("math.log")))
+    self.log_button = tk.Button(self.calc_frame, text = "log", command = lambda:self.implement_button("math.log"))
     self.log_button.grid(row = 0, column = 2)
-    self.ln_button = tk.Button(self.calc_frame, text = "ln//e", command = lambda(self.implement_button(self.ln_button)))
+    self.ln_button = tk.Button(self.calc_frame, text = "ln//e", command = lambda:self.implement_button(self.ln_button))
     self.ln_button.grid(row = 0, column = 3)
-    self.sin_button = tk.Button(self.calc_frame, text = "sin//sin^-1", command = lambda(self.implement_button(self.sin_button)))
+    self.sin_button = tk.Button(self.calc_frame, text = "sin//sin^-1", command = lambda:self.implement_button(self.sin_button))
     self.sin_button.grid(row = 0, column = 4)
-    self.cos_button = tk.Button(self.calc_frame, text = "cos//cos^-1", command = lambda(self.implement_button(self.cos_button)))
+    self.cos_button = tk.Button(self.calc_frame, text = "cos//cos^-1", command = lambda:self.implement_button(self.cos_button))
     self.cos_button.grid(row = 1, column = 0)
-    self.tan_button = tk.Button(self.calc_frame, text = "tan//tan^-1", command = lambda(self.implement_button(self.tan_button)))
+    self.tan_button = tk.Button(self.calc_frame, text = "tan//tan^-1", command = lambda:self.implement_button(self.tan_button))
     self.tan_button.grid(row = 1, column = 1)
-    self.bracket_one = tk.Button(self.calc_frame, text = "(", command = lambda(self.implement_button("("))
+    self.bracket_one = tk.Button(self.calc_frame, text = "(", command = lambda:self.implement_button("("))
     self.bracket_one.grid(row = 1, column = 2)                        
-    self.bracket_two = tk.Button(self.calc_frame, text = ")", command = lambda(self.implement_button(")")))
+    self.bracket_two = tk.Button(self.calc_frame, text = ")", command = lambda:self.implement_button(")"))
     self.bracket_two.grid(row = 1, column = 3)
-    self.power_button = tk.Button(self.calc_frame, text = "^", command = lambda(self.implement_button("**")))
+    self.power_button = tk.Button(self.calc_frame, text = "^", command = lambda:self.implement_button("**"))
     self.power_button.grid(row = 1, column = 4)
-    self.seven_button = tk.Button(self.calc_frame, text = "7", command = lambda(self.implement_button("7")))
+    self.seven_button = tk.Button(self.calc_frame, text = "7", command = lambda:self.implement_button("7"))
     self.seven_button.grid(row = 2, column = 0)
-    self.eight_button = tk.Button(self.calc_frame, text = "8", command = lambda(self.implement_button("8")))
+    self.eight_button = tk.Button(self.calc_frame, text = "8", command = lambda:self.implement_button("8"))
     self.eight_button.grid(row = 2, column = 1)
-    self.nine_button = tk.Button(self.calc_frame, text = "9", command = lambda(self.implement_button("9")))
+    self.nine_button = tk.Button(self.calc_frame, text = "9", command = lambda:self.implement_button("9"))
     self.nine_button.grid(row = 2, column = 2)
-    self.undo_button = tk.Button(self.calc_frame, text = "UNDO", command = lambda(self.implement_button(self.undo_button)))
+    self.undo_button = tk.Button(self.calc_frame, text = "UNDO", command = lambda:self.implement_button(self.undo_button))
     self.undo_button.grid(row = 2, column = 3)
-    self.ac_button = tk.Button(self.calc_frame, text = "AC", command = lambda(self.implement_button(self.ac_button)))
+    self.ac_button = tk.Button(self.calc_frame, text = "AC", command = lambda:self.implement_button(self.ac_button))
     self.ac_button.grid(row = 2, column = 4)
-    self.four_button = tk.Button(self.calc_frame, text = "4", command = lambda(self.implement_button("4")))
+    self.four_button = tk.Button(self.calc_frame, text = "4", command = lambda:self.implement_button("4"))
     self.four_button.grid(row = 3, column = 0)
-    self.five_button = tk.Button(self.calc_frame, text = "5", command = lambda(self.implement_button("5")))
+    self.five_button = tk.Button(self.calc_frame, text = "5", command = lambda:self.implement_button("5"))
     self.five_button.grid(row = 3, column = 1)
-    self.six_button = tk.Button(self.calc_frame, text = "6", command = lambda(self.implement_button("6")))
+    self.six_button = tk.Button(self.calc_frame, text = "6", command = lambda:self.implement_button("6"))
     self.six_button.grid(row = 3, column = 2)
-    self.multiply_button = tk.Button(self.calc_frame, text = "X", command = lambda(self.implement_button("*")))
+    self.multiply_button = tk.Button(self.calc_frame, text = "X", command = lambda:self.implement_button("*"))
     self.multiply_button.grid(row = 3, column = 3)
-    self.divide_button = tk.Button(self.calc_frame, text = "/", command = lambda(self.implement_button("/")))
+    self.divide_button = tk.Button(self.calc_frame, text = "/", command = lambda:self.implement_button("/"))
     self.divide_button.grid(row = 3, column = 4)
-    self.one_button = tk.Button(self.calc_frame, text = "1", command = lambda(self.implement_button("1")))
+    self.one_button = tk.Button(self.calc_frame, text = "1", command = lambda:self.implement_button("1"))
     self.one_button.grid(row = 4, column = 0)
-    self.two_button = tk.Button(self.calc_frame, text = "2", command = lambda(self.implement_button("2")))
+    self.two_button = tk.Button(self.calc_frame, text = "2", command = lambda:self.implement_button("2"))
     self.two_button.grid(row = 4, column = 1)
-    self.three_button = tk.Button(self.calc_frame, text = "3", command = lambda(self.implement_button("3")))
+    self.three_button = tk.Button(self.calc_frame, text = "3", command = lambda:self.implement_button("3"))
     self.three_button.grid(row = 4, column = 2)
-    self.plus_button = tk.Button(self.calc_frame, text = "+", command = lambda(self.implement_button("+")))
+    self.plus_button = tk.Button(self.calc_frame, text = "+", command = lambda:self.implement_button("+"))
     self.plus_button.grid(row = 4, column = 3)
-    self.minus_button = tk.Button(self.calc_frame, text = "-", command = lambda(self.implement_button("-")))
+    self.minus_button = tk.Button(self.calc_frame, text = "-", command = lambda:self.implement_button("-"))
     self.minus_button.grid(row = 4, column = 4)
-    self.zero_button = tk.Button(self.calc_frame, text = "0", command = lambda(self.implement_button("0")))
+    self.zero_button = tk.Button(self.calc_frame, text = "0", command = lambda:self.implement_button("0"))
     self.zero_button.grid(row = 5, column = 1)
-    self.decimal_button = tk.Button(self.calc_frame, text = ".", command = lambda(self.implement_button(".")))
+    self.decimal_button = tk.Button(self.calc_frame, text = ".", command = lambda:self.implement_button("."))
     self.decimal_button.grid(row = 5, column = 2)
-    self.equals_button = tk.Button(self.calc_frame, text = "=", command = lambda(self.implement_button(self.equals_button)))
+    self.equals_button = tk.Button(self.calc_frame, text = "=", command = lambda:self.implement_button(self.equals_button))
     self.equals_button.grid(row = 5, column = 3)
   
   def implement_button(self, button_clicked):
@@ -425,9 +425,9 @@ class Sci_Calculator:
     constant_values = CONSTANTS.values()
     for i in range(6):
       for j in range(6):
-        constant = tk.Button(self.constantframe, text = constant_names[i+j], command = lambda(self.messagebox_display(constant_names[i+j],constant_values[i+j])))
+        constant = tk.Button(self.constantframe, text = constant_names[i+j], command = lambda:self.messagebox_display(constant_names[i+j],constant_values[i+j]))
         constant.grid(row = i, column = j)
-    go_back = tk.Button(self.constantframe, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.constantframe])))
+    go_back = tk.Button(self.constantframe, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.constantframe]))
     go_back.grid(row = 6, column = 3)
 
   def vocabulary(self):
@@ -441,9 +441,9 @@ class Sci_Calculator:
     test_descriptions = TESTS.values()
     for i in range(4):
       for j in range(5):
-        test = tk.Button(self.vocabframe, text = test_types[i+j], command = lambda(self.messagebox_display(test_types[i+j],test_descriptions[i+j])))
+        test = tk.Button(self.vocabframe, text = test_types[i+j], command = lambda:self.messagebox_display(test_types[i+j],test_descriptions[i+j]))
         test.grid(row = i, column = j)
-    go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.vocabframe])))
+    go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.vocabframe]))
     go_back.grid(row = 5, column = 3)
   
   def conversions(self):
@@ -452,9 +452,9 @@ class Sci_Calculator:
       self.intro.forget()
     except:
       pass
-    length = {"m": 1, "cm": 0.01, "mm": 0.001, "um": 10**-6, "nm": 10**-9, "km": 1000}
-    time = {"s": 1, "m": 60, "h": 3600, "d": 3600*24, "ms": 0.001}
-    volume = {"l": 1, "ml": 0.001}
+    self.length = {"m": 1, "cm": 0.01, "mm": 0.001, "um": 10**-6, "nm": 10**-9, "km": 1000}
+    self.time = {"s": 1, "m": 60, "h": 3600, "d": 3600*24, "ms": 0.001}
+    self.volume = {"l": 1, "ml": 0.001}
     self.conversion_frame = tk.Frame(self.master)
     label1 = tk.Label(self.conversion_frame, text = "Enter value")
     label1.grid(row = 0, column = 1)
@@ -468,9 +468,9 @@ class Sci_Calculator:
     label3.grid(row = 2, column = 2)
     text3 = tk.Label(self.conversion_frame)
     text3.grid(row = 3, column = 2)
-    self.conversion_button = tk.Button(self.conversion_frame, text = "Click once you're ready to convert", command = lambda(self.convert(text1, text2, text3)))
+    self.conversion_button = tk.Button(self.conversion_frame, text = "Click once you're ready to convert", command = lambda:self.convert(text1, text2, text3))
     self.conversion_button.grid(row = 0, column = 0)
-    go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.conversion_frame])))
+    go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.conversion_frame]))
     go_back.grid(row = 2, column = 1)
   
   def convert(self, input_val, input_unit, converted_unit):
@@ -478,8 +478,8 @@ class Sci_Calculator:
     unit1 = input_unit.get()
     unit2 = converted_unit.get()
     try:
-      if unit1 in length.keys() or unit1 in time.keys() or unit1 in volume.keys():
-        new_val = val*length[unit1]/length[unit2]
+      if unit1 in self.length.keys() or unit1 in self.time.keys() or unit1 in self.volume.keys():
+        new_val = val*self.length[unit1]/self.length[unit2]
       elif unit1 == "K" and unit2 == "C":
         new_val = val - 273.15
       elif unit1 == "C" and unit2 == "K":
@@ -526,10 +526,10 @@ class Sci_Calculator:
     self.record_button.pack()
     self.graph_button = tk.Button(self.master, text = "Draw graph from entered data", command = self.display_graph)
     self.graph_button.pack()
-    self.go_back = tk.Button(self.master, text = "Return to main menu", command = lambda(self.return_to_menu("main_menu", args = [self.x_label, self.x_value, self.y_label, self.y_value, self.record_button, self.graph_button, self.graph_errors, self.go_back])))
+    self.go_back = tk.Button(self.master, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.x_label, self.x_value, self.y_label, self.y_value, self.record_button, self.graph_button, self.graph_errors, self.go_back]))
     self.go_back.pack()
 
-  def record_values_for_graph(self)
+  def record_values_for_graph(self):
     try:
       x_val = self.x_value.get()
       y_val = self.y_value.get()
@@ -563,7 +563,7 @@ class Sci_Calculator:
     frame.forget()
     my_img = tk.Label(self.master, image = img)
     my_img.place(x=0, y=0, width = 500, height = 400)
-    return_button = tk.Button(self.master, text = "Go back", command = lambda(self.return_to_menu(menu, args = [my_img, return_button])))
+    return_button = tk.Button(self.master, text = "Go back", command = lambda:self.return_to_menu(menu, args = [my_img, return_button]))
     return_button.pack(x = 250, y = 450)
 
   def messagebox_display(self, key, value):
@@ -572,7 +572,7 @@ class Sci_Calculator:
   def return_to_menu(self, chosen_menu, args):
     for i in args:
       i.forget()
-    returning_nav = {"main_menu": self.main_menu(), "physics_menu": self.physics_menu(), "chem_menu", self.chem_menu, "bio_menu", self.bio_menu}
+    returning_nav = {"main_menu": self.main_menu(), "physics_menu": self.physics_menu(), "chem_menu": self.chem_menu, "bio_menu": self.bio_menu}
     returning_nav[chosen_menu]
     
 gui_calc = Sci_Calculator()
