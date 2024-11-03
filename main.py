@@ -1,4 +1,4 @@
-#to do list: more debugging
+#to do list: sort out dictionary handling
 
 import tkinter as tk
 from tkinter import messagebox
