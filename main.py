@@ -581,8 +581,14 @@ class Sci_Calculator:
   def return_to_menu(self, chosen_menu, args):
     for i in args:
       i.forget()
-    returning_nav = {"main_menu": self.main_menu(), "physics_menu": self.physics_menu(), "chem_menu": self.chem_menu, "bio_menu": self.bio_menu}
-    returning_nav[chosen_menu]
+    if chosen_menu == "main_menu":
+      self.main_menu()
+    elif chosen_menu == "physics_menu":
+      self.physics_menu()
+    elif chosen_menu == "bio_menu":
+      self.bio_menu()
+    else:
+      self.chem_menu
     
 gui_calc = Sci_Calculator()
 gui_calc.master.mainloop()
