@@ -11,7 +11,7 @@ def get_infos():
   constants_dictionary["Characteristic impedance of vacuum"] = 376.7303135
   constants_dictionary["Planck constant"] = 6.62607*(10**-34)
   constants_dictionary["Planck mass"] = 2.17647*(10**-8)
-  constants_dictionary["Planck length"] = 1.616229*(1-**-35)
+  constants_dictionary["Planck length"] = 1.616229*(10**-35)
   constants_dictionary["Planck time"] = 5.39116*(10**-44)
 
   constants_dictionary["Elementary charge"] = 1.6021766*(10**-19)
