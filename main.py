@@ -70,7 +70,7 @@ class Sci_Calculator:
     self.tests.grid(row = 2, column = 0)
     self.graphs = tk.Button(self.buttonframe, text = "Datasheet and Graphs", command = self.data_graphs)
     self.graphs.grid(row = 2, column = 1)
-
+    self.buttonframe.pack(expand = True)
   
   def physics_menu(self):
     try:
@@ -89,6 +89,7 @@ class Sci_Calculator:
     self.circuits.grid(row = 1, column = 2)
     go_back = tk.Button(self.physics_frame, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.physics_frame]))
     go_back.grid(row = 2, column = 1)
+    self.physics_frame.pack(expand = True)
 
   def suvat(self):
     self.physics_frame.forget()
@@ -228,6 +229,7 @@ class Sci_Calculator:
     self.ionic.grid(row = 1, column = 2)
     go_back = tk.Button(self.chem_frame, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.chem_frame]))
     go_back.grid(row = 2, column = 1)
+    self.chem_frame.pack(expand = True)
   
   def bio_menu(self):
     try:
@@ -246,6 +248,7 @@ class Sci_Calculator:
     self.cells.grid(row = 1, column = 2)
     go_back = tk.Button(self.bio_frame, text = "Return to Main Menu", command = lambda:self.return_to_menu("main menu", args = [self.bio_frame]))
     go_back.grid(row = 2, column = 1)
+    self.bio_frame.pack(expand = True)
     
   def amino_acids(self):
     self.bio_frame.forget()
@@ -287,6 +290,7 @@ class Sci_Calculator:
     self.geno_button.grid(row = 3, column = 0)
     go_back = tk.Button(self.punnett_frame, text = "Return to Biology Menu", command = lambda:self.return_to_menu("bio_menu", args = [self.punnett_frame]))
     go_back.grid(row = 3, column = 1)
+    self.punnett_frame.pack(expand = True)
 
   def get_genotypes(self):
     father_one = self.father_one.get()
@@ -313,6 +317,7 @@ class Sci_Calculator:
     self.calc_frame = tk.Frame(self.master, side = tk.BOTTOM())
     self.output_label = tk.Label(self.output_frame)
     self.output_label.pack(expand = True)
+    self.output_frame.pack(expand = True)
     #button time
     go_back = tk.Button(self.calc_frame, text = "EXIT", command = lambda:self.return_to_menu("main_menu", args = [self.output_frame, self.calc_frame]))
     go_back.grid(row = 0, column = 0)
@@ -371,6 +376,7 @@ class Sci_Calculator:
     self.decimal_button.grid(row = 5, column = 2)
     self.equals_button = tk.Button(self.calc_frame, text = "=", command = lambda:self.implement_button(self.equals_button))
     self.equals_button.grid(row = 5, column = 3)
+    self.calc_frame.pack(expand = True)
   
   def implement_button(self, button_clicked):
     if button_clicked == self.shift_button:
@@ -429,6 +435,7 @@ class Sci_Calculator:
         constant.grid(row = i, column = j)
     go_back = tk.Button(self.constantframe, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.constantframe]))
     go_back.grid(row = 6, column = 3)
+    self.constantframe.pack(expand = True)
 
   def vocabulary(self):
     try:
@@ -445,6 +452,7 @@ class Sci_Calculator:
         test.grid(row = i, column = j)
     go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.vocabframe]))
     go_back.grid(row = 5, column = 3)
+    self.vocabframe.pack(expand = True)
   
   def conversions(self):
     try:
@@ -472,6 +480,7 @@ class Sci_Calculator:
     self.conversion_button.grid(row = 0, column = 0)
     go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.conversion_frame]))
     go_back.grid(row = 2, column = 1)
+    self.conversion_frame.pack(expand = True)
   
   def convert(self, input_val, input_unit, converted_unit):
     val = input_val.get()
