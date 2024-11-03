@@ -10,10 +10,8 @@ from matplotlib.back_ends.backend_tkagg import FigureCanvasTkAgg
 import sys
 sys.path.append("/GUI_science_calculator/infos.py")
 import "infos.py" as INFO_FILE
-CONSTANTS = INFO_FILE.constants_dictionary
-TESTS = INFO_FILE.molecule_tests
-AMINOS = INFO_FILE.amino_acids
-CIRCUITS = INFO_FILE.circuit_definitions
+
+CONSTANTS, AMINOS, CIRCUITS, TESTS = INFO_FILE.get_infos()
 
 table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
 table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
