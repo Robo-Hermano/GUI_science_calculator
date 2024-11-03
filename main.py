@@ -7,7 +7,7 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.back_ends.backend_tkagg import FigureCanvasTkAgg
-import infos as INFO_FILE
+import "/GUI_science_calculator/infos.py" as INFO_FILE
 CONSTANTS = INFO_FILE.constants_dictionary
 TESTS = INFO_FILE.molecule_tests
 AMINOS = INFO_FILE.amino_acids
