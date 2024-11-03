@@ -1,4 +1,4 @@
-#to do list: pack frame and more debugging
+#to do list: more debugging
 
 import tkinter as tk
 from tkinter import messagebox
