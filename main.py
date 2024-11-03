@@ -2,7 +2,7 @@
 
 import tkinter as tk
 from tkinter import messagebox
-from PIL import ImageTk, Image
+from PIL import Image
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,11 +13,11 @@ import infos as INFO_FILE
 
 CONSTANTS, AMINOS, CIRCUITS, TESTS = INFO_FILE.get_infos()
 
-table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
-table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
-cells_image = ImageTk.PhotoImage(Image.open("cells.jpg")) #used for cell diagrams
-convex_ray = ImageTk.PhotoImage(Image.open("convex.webp")) #used for ray diagrams
-concave_ray = ImageTk.PhotoImage(Image.open("concave.webp")) #used for ray diagrams
+table_periodic = Image.open("periodic_table.png") #used for displaying periodic table
+table_reactivity = Image.open("Reactivityseriesofmetals.png") #used for displaying periodic table
+cells_image = Image.open("cells.jpg") #used for cell diagrams
+convex_ray = Image.open("convex.webp") #used for ray diagrams
+concave_ray = Image.open("concave.webp") #used for ray diagrams
 
 #will use for undo and redo
 class Stack:
