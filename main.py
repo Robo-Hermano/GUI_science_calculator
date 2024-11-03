@@ -16,8 +16,8 @@ CIRCUITS = INFO_FILE.circuit_definitions
 table_periodic = ImageTk.PhotoImage(Image.open("periodic_table.png")) #used for displaying periodic table
 table_reactivity = ImageTk.PhotoImage(Image.open("Reactivityseriesofmetals.png")) #used for displaying periodic table
 cells_image = ImageTk.PhotoImage(Image.open("cells.jpg")) #used for cell diagrams
-convex_ray = ImageTk.PhotoImage(Image.open("convex.webp"))
-concave_ray = ImageTk.PhotoImage(Image.open("concave.webp"))
+convex_ray = ImageTk.PhotoImage(Image.open("convex.webp")) #used for ray diagrams
+concave_ray = ImageTk.PhotoImage(Image.open("concave.webp")) #used for ray diagrams
 
 #will use for undo and redo
 class Stack:
