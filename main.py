@@ -427,8 +427,8 @@ class Sci_Calculator:
     except:
       pass
     self.constantframe = tk.Frame(self.master)
-    constant_names = CONSTANTS.keys()
-    constant_values = CONSTANTS.values()
+    constant_names = [l for l in CONSTANTS.keys()]
+    constant_values = [k for k in CONSTANTS.values()]
     for i in range(6):
       for j in range(6):
         constant = tk.Button(self.constantframe, text = constant_names[i+j], command = lambda:self.messagebox_display(constant_names[i+j],constant_values[i+j]))
@@ -444,8 +444,8 @@ class Sci_Calculator:
     except:
       pass
     self.vocabframe = tk.Frame(self.master)
-    test_types = TESTS.keys()
-    test_descriptions = TESTS.values()
+    test_types = [k for k in TESTS.keys()]
+    test_descriptions = [k for k in TESTS.values()]
     for i in range(4):
       for j in range(5):
         test = tk.Button(self.vocabframe, text = test_types[i+j], command = lambda:self.messagebox_display(test_types[i+j],test_descriptions[i+j]))
