@@ -123,47 +123,57 @@ class Sci_Calculator:
 
   def suvat_calculations(self):
     try:
-      u = self.u_text.get()
-      v = self.v_text.get()
-      a = self.a_text.get()
-      s = self.s_text.get()
-      t = self.t_text.get()
+      u = self.u_text.get("1.0", "end-1c")
+      v = self.v_text.get("1.0", "end-1c")
+      a = self.a_text.get("1.0", "end-1c")
+      s = self.s_text.get("1.0", "end-1c")
+      t = self.t_text.get("1.0", "end-1c")
       if t != '':
-        if t <= 0:
+        if float(t) <= 0:
           raise ValueError("incorrect entering")
       elif u == '' and v == '':
+        s = float(s); a = float(a); t = float(t)
         u = (s-(0.5*a*t**2))/t
         v = u + a*t
       elif u == '' and a == '':
+        s = float(s); t = float(t); v = float(v)
         a = (v*t-s)/(t**2)
         u = v-a*t
       elif u == '' and s == '':
+        v = float(v); a = float(a); t = float(t)
         u = v-a*t
         s = u*t+0.5*a*t**2
       elif u == '' and t == '':
+        s = float(s); v = float(v); a = float(a)
         u = math.sqrt(v**2-2*a*s)
         t = 2*s/(v+u)
       elif v == '' and a == '':
+        u = float(u); s = float(s); t = float(t)
         a = (s-u*t)/t**2
         v = u+a*t
       elif v == '' and s == '':
+        u = float(u); t = float(t); a = float(a)
         v = u+a*t
         s = u*t+0.5*a*t**2
       elif v == '' and t == '':
+        u = float(u); s = float(s); a = float(a)
         v = math.sqrt(u**2+2*a*s)
         t = 2*s/(v+u)
       elif a == '' and s == '':
+        u = float(u); t = float(t); v = float(v)
         s = 0.5*t*(v+u)
         a = (s-u*t)/t**2
       elif a == '' and t == '':
+        u = float(u); v = float(v); s = float(s)
         t = 2*s/(v+u)
         a = (s-u*t)/t**2
       elif s == '' and t == '':
+        u = float(u); v = float(v); a = float(a)
         s = (v**2-u**2)/2/a
         t = 2*s/(v+u)
       show_vals = tk.Label(self.suvat_frame, text = f"inital speed: {u}, final speed: {v}, time taken: {t}, displacement: {s}, acceleration: {a}")
-      show_vals.grid(row = 3, column = 2)
-    except:
+      show_vals.grid(row = 4, column = 1)
+    except Exception as e:
       error_label = tk.Label(self.suvat_frame, text = "not enough values entered or time entered incorrectly")
       error_label.grid(row = 3, column = 2)
 
@@ -294,10 +304,10 @@ class Sci_Calculator:
     self.punnett_frame.pack(expand = True)
 
   def get_genotypes(self):
-    father_one = self.father_one.get()
-    father_two = self.father_two.get()
-    mother_one = self.mother_one.get()
-    mother_two = self.mother_two.get()
+    father_one = self.father_one.get("1.0", "end-1c")
+    father_two = self.father_two.get("1.0", "end-1c")
+    mother_one = self.mother_one.get("1.0", "end-1c")
+    mother_two = self.mother_two.get("1.0", "end-1c")
     if father_one.upper() == father_two.upper() and father_one.upper() == mother_one.upper() and father_one.upper() == mother_two.upper() and father_one.isalpha() and len(father_one) == 1:
       self.genotype_one.config(text = sorted(father_one + mother_one))
       self.genotype_two.config(text = sorted(father_two + mother_one))
@@ -497,9 +507,9 @@ class Sci_Calculator:
     self.conversion_frame.pack(expand = True)
   
   def convert(self, input_val, input_unit, converted_unit):
-    val = input_val.get()
-    unit1 = input_unit.get()
-    unit2 = converted_unit.get()
+    val = input_val.get("1.0", "end-1c")
+    unit1 = input_unit.get("1.0", "end-1c")
+    unit2 = converted_unit.get("1.0", "end-1c")
     try:
       if unit1 in self.length.keys() or unit1 in self.time.keys() or unit1 in self.volume.keys():
         new_val = val*self.length[unit1]/self.length[unit2]
@@ -554,13 +564,14 @@ class Sci_Calculator:
 
   def record_values_for_graph(self):
     try:
-      x_val = self.x_value.get()
-      y_val = self.y_value.get()
+      x_val = self.x_value.get("1.0", "end-1c")
+      y_val = self.y_value.get("1.0", "end-1c")
       x_val = float(x_val)
       y_val = float(y_val)
       self.x_list.append(x_val)
       self.y_list.append(y_val)
-    except:
+    except Exception as e:
+      print(e)
       self.record_button.config(text = "Please input valid data for both x and y")
 
   def display_graph(self):
@@ -574,11 +585,10 @@ class Sci_Calculator:
     self.go_back.forget()
     self.figure = plt.Figure(figsize = (50,50), dpi = 100)
     self.ax = self.figure.add_subplot(111)
-    self.canvas = FigureCanvasTkAgg(self.figure, master=self)
+    self.canvas = FigureCanvasTkAgg(self.figure, self.master)
     self.canvas.get_tk_widget().pack(side = tk.TOP, fill = tk.BOTH, expand = 1)
-    for i in range(len(self.x_list)):
-      self.ax.plot(self.x_list[i], self.y_list[i])
-    self.canvas.draw()
+    self.ax.plot(self.x_list, self.y_list)
+    self.ax.legend([''])
     self.go_back = tk.Button(self.master, text = "go back", command = self.data_graphs)
     self.go_back.pack(side = tk.BOTTOM, pady = 10)
 
