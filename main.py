@@ -498,11 +498,11 @@ class Sci_Calculator:
     text2.grid(row = 1, column = 2)
     label3 = tk.Label(self.conversion_frame, text = "Enter unit converted to")
     label3.grid(row = 2, column = 2)
-    text3 = tk.Label(self.conversion_frame)
+    text3 = tk.Text(self.conversion_frame)
     text3.grid(row = 3, column = 2)
     self.conversion_button = tk.Button(self.conversion_frame, text = "Click once you're ready to convert", command = lambda:self.convert(text1, text2, text3))
     self.conversion_button.grid(row = 0, column = 0)
-    go_back = tk.Button(self.vocabframe, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.conversion_frame]))
+    go_back = tk.Button(self.conversion_frame, text = "Return to main menu", command = lambda:self.return_to_menu("main_menu", args = [self.conversion_frame]))
     go_back.grid(row = 2, column = 1)
     self.conversion_frame.pack(expand = True)
   
