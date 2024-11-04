@@ -1,4 +1,4 @@
-#get fix suvat calculations, and image issues
+#fix image implementation
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image
