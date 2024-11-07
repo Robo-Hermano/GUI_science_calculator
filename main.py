@@ -1,7 +1,7 @@
 #fix image implementation
 import tkinter as tk
 from tkinter import messagebox
-from PIL import Image
+from PIL import Image, ImageTk
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,7 +9,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import sys
 sys.path.append("/GUI_science_calculator/infos.py")
 import infos as INFO_FILE
-
 CONSTANTS, AMINOS, CIRCUITS, TESTS = INFO_FILE.get_infos()
 
 table_periodic = Image.open("periodic_table.png") #used for displaying periodic table
@@ -271,7 +270,7 @@ class Sci_Calculator:
     button2 = tk.Button(self.master, text = "go back", command = lambda:self.return_to_menu("bio_menu", args = [label, error_label, text, button2, button]))
     button2.pack()
     try:
-      button = tk.Button(self.master, text = "click here once you enter codon", command = lambda:self.messagebox_display(text.get(), AMINOS[text.get()]))
+      button = tk.Button(self.master, text = "click here once you enter codon", command = lambda:self.messagebox_display(AMINOS, text.get("1.0", "end-1c")))
       button.pack()
     except:
       error_label.pack()
@@ -281,13 +280,13 @@ class Sci_Calculator:
     self.punnett_frame = tk.Frame(self.master)
     explain_label = tk.Label(self.punnett_frame, text = "Fill out alleles of parents")
     explain_label.grid(row = 0, column = 0)
-    self.father_one = tk.Text(self.punnett_frame)
+    self.father_one = tk.Text(self.punnett_frame, height = 10)
     self.father_one.grid(row = 0, column = 1)
-    self.father_two = tk.Text(self.punnett_frame)
+    self.father_two = tk.Text(self.punnett_frame, height = 10)
     self.father_two.grid(row = 0, column = 2)
-    self.mother_one = tk.Text(self.punnett_frame)
+    self.mother_one = tk.Text(self.punnett_frame, height = 10)
     self.mother_one.grid(row = 1, column = 0)
-    self.mother_two = tk.Text(self.punnett_frame)
+    self.mother_two = tk.Text(self.punnett_frame, height = 10)
     self.mother_two.grid(row = 2, column = 0)
     self.genotype_one = tk.Button(self.punnett_frame, text = "Genotype One", command = None)
     self.genotype_one.grid(row = 1, column = 1)
@@ -511,6 +510,7 @@ class Sci_Calculator:
     unit1 = input_unit.get("1.0", "end-1c")
     unit2 = converted_unit.get("1.0", "end-1c")
     try:
+      val = int(val)
       if unit1 in self.length.keys() or unit1 in self.time.keys() or unit1 in self.volume.keys():
         new_val = val*self.length[unit1]/self.length[unit2]
       elif unit1 == "K" and unit2 == "C":
@@ -527,7 +527,7 @@ class Sci_Calculator:
         new_val = (val-32)/1.8+273.15
       else:
         raise ValueError()
-      self.messagebox_display("Value in new unit", new_val)
+      messagebox.showinfo(message = new_val)
     except:
       self.conversion_button.config(text = "Sorry. Your units are either not in conversion dictionary or an input entered is invalid")
   
@@ -600,7 +600,10 @@ class Sci_Calculator:
     return_button.pack(x = 250, y = 450)
 
   def messagebox_display(self, value, value_index):
-    messagebox.showinfo(message = value[value_index])
+    try:
+      messagebox.showinfo(message = value[value_index])
+    except:
+      messagebox.showinfo(message = "Invalid data entered")
   
   def return_to_menu(self, chosen_menu, args):
     for i in args:
